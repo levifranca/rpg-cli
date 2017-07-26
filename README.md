@@ -11,7 +11,10 @@ In this game the player should be able to:
 TBD
 
 ## How to run
+TBD
 
 ## How to play
+TBD
 
 ## How to extend
+TBD
