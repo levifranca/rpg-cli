@@ -9,16 +9,16 @@ import org.junit.Before;
 import org.junit.Test;
 import org.rpgcli.console.ConsoleBackgroundColor;
 import org.rpgcli.console.ConsoleFontColor;
-import org.rpgcli.console.ConsoleWriter;
+import org.rpgcli.console.ConsoleWriterImpl;
 
-public class ConsoleWriterTest {
+public class ConsoleWriterImplTest {
 	
-	private ConsoleWriter instanceUnderTest;
+	private ConsoleWriterImpl instanceUnderTest;
 	private ByteArrayOutputStream testOutputStream;
 	
 	@Before
 	public void setup() {
-		instanceUnderTest = ConsoleWriter.getInstance();
+		instanceUnderTest = ConsoleWriterImpl.getInstance();
 	
 		testOutputStream = new ByteArrayOutputStream();
 		instanceUnderTest.setPrintStream(new PrintStream(testOutputStream));
@@ -26,14 +26,14 @@ public class ConsoleWriterTest {
 	
 	@Test
 	public void testSingleInstanceAvailable() throws Exception {
-		ConsoleWriter instance2 = ConsoleWriter.getInstance();
+		ConsoleWriterImpl instance2 = ConsoleWriterImpl.getInstance();
 		
 		assertEquals(instanceUnderTest, instance2);
 	}
 	
 	@Test
 	public void testWritePlainTextEmptyNull() throws Exception {
-		ConsoleWriter instance = ConsoleWriter.getInstance();
+		ConsoleWriterImpl instance = ConsoleWriterImpl.getInstance();
 		
 		instance.write(null);
 
@@ -42,7 +42,7 @@ public class ConsoleWriterTest {
 	
 	@Test
 	public void testWritePlainTextEmptyString() throws Exception {
-		ConsoleWriter instance = ConsoleWriter.getInstance();
+		ConsoleWriterImpl instance = ConsoleWriterImpl.getInstance();
 		
 		instance.write("");
 		

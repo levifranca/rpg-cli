@@ -14,16 +14,16 @@ import java.nio.file.Files;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.rpgcli.console.ConsoleReader;
+import org.rpgcli.console.ConsoleReaderImpl;
 
-public class ConsoleReaderTest {
+public class ConsoleReaderImplTest {
 
-	private ConsoleReader instanceUnderTest;
+	private ConsoleReaderImpl instanceUnderTest;
 	private File unitTestFile;
 	
 	@Before
 	public void setup() throws IOException {
-		instanceUnderTest = ConsoleReader.getInstance();
+		instanceUnderTest = ConsoleReaderImpl.getInstance();
 		
 		unitTestFile = Files.createTempFile("console_test", null).toFile();
 		InputStream inputStream = new FileInputStream(unitTestFile);
@@ -37,7 +37,7 @@ public class ConsoleReaderTest {
 	
 	@Test
 	public void testReturnsSameIntance() throws Exception {
-		ConsoleReader instance2 = ConsoleReader.getInstance();
+		ConsoleReaderImpl instance2 = ConsoleReaderImpl.getInstance();
 		
 		assertEquals(instanceUnderTest, instance2);
 	}

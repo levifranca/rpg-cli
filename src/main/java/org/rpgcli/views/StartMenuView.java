@@ -3,13 +3,15 @@ package org.rpgcli.views;
 import org.rpgcli.console.ConsoleBackgroundColor;
 import org.rpgcli.console.ConsoleFontColor;
 import org.rpgcli.console.ConsoleReader;
+import org.rpgcli.console.ConsoleReaderImpl;
 import org.rpgcli.console.ConsoleWriter;
+import org.rpgcli.console.ConsoleWriterImpl;
 import org.rpgcli.presenters.Presenter;
 
 public class StartMenuView implements View {
 
-	private ConsoleWriter consoleWriter = ConsoleWriter.getInstance();
-	private ConsoleReader consoleReader = ConsoleReader.getInstance();
+	private ConsoleWriter consoleWriter = ConsoleWriterImpl.getInstance();
+	private ConsoleReader consoleReader = ConsoleReaderImpl.getInstance();
 	
 	private Presenter presenter;
 	
@@ -28,6 +30,18 @@ public class StartMenuView implements View {
 	public void drawInvalidInputErrorMessage() {
 		consoleWriter.write("Invalid option! Please enter one of the characters at the beginning of the menu option text.", ConsoleFontColor.BLACK, ConsoleBackgroundColor.RED)
 					 .breakLine();
+	}
+
+	public ConsoleReader getConsoleReader() {
+		return consoleReader;
+	}
+
+	public void setConsoleReader(ConsoleReader consoleReader) {
+		this.consoleReader = consoleReader;
+	}
+
+	public void setConsoleWriter(ConsoleWriter consoleWriter) {
+		this.consoleWriter = consoleWriter;
 	}
 
 	public ConsoleWriter getConsoleWriter() {
