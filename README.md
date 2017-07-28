@@ -8,10 +8,14 @@ In this game the player should be able to:
 	- Save and Resume
 
 ## How to build
-TBD
+
+To build this application run on the source root folder:
+`./gradlew build`
 
 ## How to run
-TBD
+
+After build you can run the application. To do so run:
+`java -jar build/libs/rpg-cli-0.1.0.jar` 
 
 ## How to play
 TBD
