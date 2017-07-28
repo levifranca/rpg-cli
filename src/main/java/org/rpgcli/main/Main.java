@@ -1,9 +1,9 @@
 package org.rpgcli.main;
 
-import org.rpg.cli.console.ConsoleBackgroundColor;
-import org.rpg.cli.console.ConsoleFontColor;
-import org.rpg.cli.console.ConsoleReader;
-import org.rpg.cli.console.ConsoleWriter;
+import org.rpgcli.console.ConsoleBackgroundColor;
+import org.rpgcli.console.ConsoleFontColor;
+import org.rpgcli.console.ConsoleReader;
+import org.rpgcli.console.ConsoleWriter;
 
 public class Main {
 	public static void main(String[] args) {

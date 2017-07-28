@@ -1,22 +1,22 @@
-package org.rpg.cli.console;
+package org.rpgcli.console;
 
 // https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
-public enum ConsoleFontColor {
-	BLACK(30),
-	RED(31),
-	GREEN(32),
-	YELLOW(33),
-	BLUE(34),
-	PURPLE(35),
-	CYAN(36),
-	WHITE(37);
+public enum ConsoleBackgroundColor {
+	BLACK(40),
+	RED(41),
+	GREEN(42),
+	YELLOW(43),
+	BLUE(44),
+	PURPLE(45),
+	CYAN(46),
+	WHITE(47);
 	
 	private int ansiEscapeCode;
 	private static final String ESC_ESCAPE = "\u001B[";
 	
 	public static final String RESET_ESCAPE = ESC_ESCAPE + "0m";
 	
-	private ConsoleFontColor(int ansiEscapeCode) {
+	private ConsoleBackgroundColor(int ansiEscapeCode) {
 		this.ansiEscapeCode = ansiEscapeCode;
 	}
 	

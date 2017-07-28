@@ -1,4 +1,4 @@
-package org.rpg.cli.console;
+package org.rpgcli.console;
 
 import java.io.PrintStream;
 

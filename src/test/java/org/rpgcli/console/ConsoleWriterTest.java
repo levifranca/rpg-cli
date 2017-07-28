@@ -7,9 +7,9 @@ import java.io.PrintStream;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.rpg.cli.console.ConsoleBackgroundColor;
-import org.rpg.cli.console.ConsoleFontColor;
-import org.rpg.cli.console.ConsoleWriter;
+import org.rpgcli.console.ConsoleBackgroundColor;
+import org.rpgcli.console.ConsoleFontColor;
+import org.rpgcli.console.ConsoleWriter;
 
 public class ConsoleWriterTest {
 	

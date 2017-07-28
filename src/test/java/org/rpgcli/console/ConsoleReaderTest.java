@@ -14,7 +14,7 @@ import java.nio.file.Files;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.rpg.cli.console.ConsoleReader;
+import org.rpgcli.console.ConsoleReader;
 
 public class ConsoleReaderTest {
 
