@@ -11,7 +11,7 @@ public class AbstractViewTest {
 	protected ConsoleWriterMock consoleWriterMock;
 	protected ConsoleReaderMock consoleReaderMock;
 	
-	protected void setup() {
+	protected void setMocks() {
 		viewUnderTest.setPresenter(new StubPresenter());
 		consoleWriterMock = new ConsoleWriterMock();
 		viewUnderTest.setConsoleWriter(consoleWriterMock);

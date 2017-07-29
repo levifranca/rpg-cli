@@ -1,8 +1,5 @@
 package org.rpgcli.views;
 
-import org.rpgcli.console.ConsoleBackgroundColor;
-import org.rpgcli.console.ConsoleFontColor;
-
 public class PickNameView extends AbstractView {
 
 	@Override
@@ -13,7 +10,7 @@ public class PickNameView extends AbstractView {
 
 	@Override
 	public void drawInvalidInputErrorMessage() {
-		getConsoleWriter().write("Please, type in a valid name:", ConsoleFontColor.BLACK, ConsoleBackgroundColor.RED).breakLine();
+		writeErrorMessage("Please, type in a valid name:");
 		readInput();
 	}
 

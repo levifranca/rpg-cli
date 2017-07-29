@@ -1,5 +1,7 @@
 package org.rpgcli.views;
 
+import org.rpgcli.console.ConsoleBackgroundColor;
+import org.rpgcli.console.ConsoleFontColor;
 import org.rpgcli.console.ConsoleReader;
 import org.rpgcli.console.ConsoleReaderImpl;
 import org.rpgcli.console.ConsoleWriter;
@@ -37,6 +39,10 @@ public abstract class AbstractView implements View {
 
 	protected ConsoleWriter getConsoleWriter() {
 		return consoleWriter;
+	}
+	
+	protected void writeErrorMessage(String text) {
+		getConsoleWriter().write(text, ConsoleFontColor.BLACK, ConsoleBackgroundColor.RED).breakLine();
 	}
 	
 	protected void readInput() {

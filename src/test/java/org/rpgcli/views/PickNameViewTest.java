@@ -11,7 +11,7 @@ public class PickNameViewTest extends AbstractViewTest {
 	public void setup() {
 		viewUnderTest = new PickNameView();
 		
-		super.setup();
+		super.setMocks();
 	}
 	
 	@Test

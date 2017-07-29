@@ -1,15 +1,17 @@
 package org.rpgcli.presenters;
 
+import org.rpgcli.views.PickClassView;
+
 public class PickClassPresenter extends AbstractPresenter {
 
 	public PickClassPresenter() {
-		super(null);
+		// TODO get list of class
+		super(new PickClassView(null));
 	}
 	
 	@Override
 	public void start() {
-		// TODO Auto-generated method stub
-
+		getView().draw();
 	}
 
 	@Override

@@ -11,7 +11,7 @@ public class StartMenuViewTest extends AbstractViewTest {
 	public void setup() {
 		viewUnderTest = new StartMenuView();
 		
-		super.setup();
+		super.setMocks();
 	}
 	
 	@Test
