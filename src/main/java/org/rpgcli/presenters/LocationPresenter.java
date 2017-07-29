@@ -1,27 +1,48 @@
 package org.rpgcli.presenters;
 
 import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.utils.Constants;
+import org.rpgcli.utils.StringUtils;
 import org.rpgcli.views.LocationView;
 
 public class LocationPresenter extends AbstractPresenter<LocationView> {
 
 	private PlayerCharacter player;
-	
+
 	public LocationPresenter(PlayerCharacter player) {
-		super(new LocationView());
+		super(new LocationView(player));
 		this.player = player;
 	}
-	
+
 	@Override
 	public void start() {
-		// TODO Auto-generated method stub
 		getView().draw();
 	}
 
 	@Override
 	public void setInput(String input) {
-		// TODO Auto-generated method stub
-		
+		if (StringUtils.isBlank(input)) {
+			getView().drawInvalidInputErrorMessage();
+			return;
+		}
+
+		switch (input) {
+		case Constants.EXPLORE_OPTION:
+			setNextPresenter(new ExplorePresenter(player));
+			break;
+		case Constants.FIGHT_OPTION:
+			setNextPresenter(new PickFightPresenter(player));
+			break;
+		case Constants.SAVE_OPTION:
+			setNextPresenter(new SavePresenter(player));
+			break;
+		case Constants.QUIT_OPTION:
+			setNextPresenter(null);
+			break;
+		default:
+			getView().drawInvalidInputErrorMessage();
+			break;
+		}
 	}
 
 }

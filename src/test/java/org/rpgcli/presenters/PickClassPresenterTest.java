@@ -1,4 +1,4 @@
-package org.rpgcli.presenter;
+package org.rpgcli.presenters;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.verify;

@@ -24,6 +24,14 @@ public abstract class AbstractView implements View {
 		this.presenter = presenter;
 	}
 
+	@Override
+	public void draw() {
+		if (getHeaderView() != null) {
+			getHeaderView().draw();
+		}
+		drawView();
+	}
+	
 	protected ConsoleReader getConsoleReader() {
 		return consoleReader;
 	}
@@ -46,14 +54,6 @@ public abstract class AbstractView implements View {
 	
 	protected void readInput() {
 		getPresenter().setInput(getConsoleReader().readInput());
-	}
-	
-	@Override
-	public void draw() {
-		if (getHeaderView() != null) {
-			getHeaderView().draw();
-		}
-		drawView();
 	}
 	
 	protected abstract View getHeaderView();

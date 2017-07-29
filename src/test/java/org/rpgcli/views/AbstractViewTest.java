@@ -2,7 +2,7 @@ package org.rpgcli.views;
 
 import org.rpgcli.console.ConsoleReaderMock;
 import org.rpgcli.console.ConsoleWriterMock;
-import org.rpgcli.presenter.StubPresenter;
+import org.rpgcli.presenters.StubPresenter;
 
 public class AbstractViewTest<T extends AbstractView> {
 

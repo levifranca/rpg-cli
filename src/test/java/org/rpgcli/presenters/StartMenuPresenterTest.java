@@ -1,4 +1,4 @@
-package org.rpgcli.presenter;
+package org.rpgcli.presenters;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -12,6 +12,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.rpgcli.presenters.PickNamePresenter;
 import org.rpgcli.presenters.StartMenuPresenter;
+import org.rpgcli.utils.Constants;
 import org.rpgcli.views.StartMenuView;
 
 public class StartMenuPresenterTest {
@@ -43,14 +44,14 @@ public class StartMenuPresenterTest {
 	
 	@Test
 	public void testQuitInput() throws Exception {
-		presenterUnderTest.setInput(StartMenuPresenter.QUIT_OPTION);
+		presenterUnderTest.setInput(Constants.QUIT_OPTION);
 		
 		assertNull(presenterUnderTest.getNextPresenter());
 	}
 	
 	@Test
 	public void testNewGameInput() throws Exception {
-		presenterUnderTest.setInput(StartMenuPresenter.NEW_GAME_OPTION);
+		presenterUnderTest.setInput(Constants.NEW_GAME_OPTION);
 		
 		assertNotNull(presenterUnderTest.getNextPresenter());
 		assertTrue(presenterUnderTest.getNextPresenter() instanceof PickNamePresenter);
