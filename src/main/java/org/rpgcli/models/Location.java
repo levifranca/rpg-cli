@@ -1,5 +1,6 @@
 package org.rpgcli.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Location implements Model {
@@ -39,5 +40,12 @@ public class Location implements Model {
 	}
 	public void setClosebyLocations(List<Location> closebyLocations) {
 		this.closebyLocations = closebyLocations;
+	}
+	
+	public void addClosebyLocation(Location loc) {
+		if (closebyLocations == null) {
+			closebyLocations = new ArrayList<>();
+		}
+		closebyLocations.add(loc);
 	}
 }

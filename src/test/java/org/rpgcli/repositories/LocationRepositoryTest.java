@@ -55,16 +55,19 @@ public class LocationRepositoryTest {
 		assertEquals(Integer.valueOf(1), location.getId());
 		assertEquals("Loc name 1", location.getName());
 		assertEquals("Loc desc 1", location.getDescription());
+		assertEquals(2, location.getClosebyLocations().size());
 
 		location = locations.get(1);
 		assertEquals(Integer.valueOf(2), location.getId());
 		assertEquals("Loc name 2", location.getName());
 		assertEquals("Loc desc 2", location.getDescription());
+		assertEquals(1, location.getClosebyLocations().size());
 		
 		location = locations.get(2);
 		assertEquals(Integer.valueOf(3), location.getId());
 		assertEquals("Loc name 3", location.getName());
 		assertEquals("Loc desc 3", location.getDescription());
+		assertEquals(2, location.getClosebyLocations().size());
 
 	}
 
@@ -96,5 +99,12 @@ public class LocationRepositoryTest {
 		mockData.add(new String[] { "3", "Loc name 3", "Loc desc 3" });
 		when(dataProviderMock.fetchData("locations")).thenReturn(mockData);
 
+		List<String[]> mockData2 = new ArrayList<>();
+		mockData2.add(new String[] { "1", "2" });
+		mockData2.add(new String[] { "1", "3" });
+		mockData2.add(new String[] { "2", "3" });
+		mockData2.add(new String[] { "3", "1" });
+		mockData2.add(new String[] { "3", "2" });
+		when(dataProviderMock.fetchData("locations-locations")).thenReturn(mockData2);
 	}
 }

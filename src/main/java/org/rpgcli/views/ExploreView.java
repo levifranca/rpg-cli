@@ -1,23 +1,39 @@
 package org.rpgcli.views;
 
+import org.rpgcli.models.Location;
+import org.rpgcli.models.PlayerCharacter;
+
 public class ExploreView extends AbstractView {
 
+	private PlayerCharacter player;
+
+	public ExploreView(PlayerCharacter player) {
+		this.player = player;
+	}
+	
 	@Override
 	public void drawInvalidInputErrorMessage() {
-		// TODO Auto-generated method stub
-
+		writeErrorMessage("Invalid option! Please pick a valid option.");
+		readInput();
 	}
 
 	@Override
 	protected View getHeaderView() {
-		// TODO Auto-generated method stub
-		return null;
+		return new PlayerStatusHeaderView(player);
 	}
 
 	@Override
 	protected void drawView() {
-		// TODO Auto-generated method stub
-
+		getConsoleWriter()
+		.write("Pick a place to go:").breakLine().breakLine();
+		
+		Location curLocation = player.getCurrentLocation();
+		for (int i = 0; i < curLocation.getClosebyLocations().size(); i++) {
+			getConsoleWriter().write((i+1) + ". " + curLocation.getClosebyLocations().get(i).getName()).breakLine();
+		}
+		getConsoleWriter().breakLine().breakLine()
+		.write("B. Back").breakLine();
+		readInput();
 	}
 
 }

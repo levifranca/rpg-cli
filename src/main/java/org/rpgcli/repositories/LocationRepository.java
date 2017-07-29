@@ -7,7 +7,7 @@ import org.rpgcli.dataproviders.XCSVDataProvider;
 import org.rpgcli.models.Location;
 
 public class LocationRepository extends AbstractRepository<Location> {
-
+	
 	public LocationRepository() {
 		super(new XCSVDataProvider());
 	}
@@ -28,9 +28,24 @@ public class LocationRepository extends AbstractRepository<Location> {
 													return location;
 												}).collect(Collectors.toList());
 		
+		addClosebys(locations);
+		
 		// TODO location.setAvailableEnemies();
-		// TODO location.setClosebyLocations();
 		return locations;
+	}
+
+	private void addClosebys(List<Location> locations) {
+		if (locations == null || locations.isEmpty()) {
+			return;
+		}
+		
+		List<String[]> locToLoc = getDataProvider().fetchData("locations-locations");
+		
+		locToLoc.forEach(record -> {
+			Location from = locations.get(Integer.valueOf(record[0])-1);
+			Location to = locations.get(Integer.valueOf(record[1])-1);
+			from.addClosebyLocation(to);
+		});
 	}
 
 }
