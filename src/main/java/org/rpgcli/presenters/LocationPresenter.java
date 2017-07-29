@@ -15,7 +15,7 @@ public class LocationPresenter extends AbstractPresenter<LocationView> {
 	@Override
 	public void start() {
 		// TODO Auto-generated method stub
-		
+		getView().draw();
 	}
 
 	@Override

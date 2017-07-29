@@ -10,7 +10,7 @@ public class PickClassView extends AbstractView {
 	private List<CharacterClass> characterClasses = new ArrayList<>();
 
 	@Override
-	public void draw() {
+	public void drawView() {
 		getConsoleWriter().write("Select you character class:").breakLine();
 		for (int i = 0; i < characterClasses.size(); i++) {
 			getConsoleWriter().write((i + 1) + ". ").write(characterClasses.get(i).getName()).breakLine();
@@ -33,4 +33,8 @@ public class PickClassView extends AbstractView {
 		this.characterClasses = characterClasses;
 	}
 
+	@Override
+	protected View getHeaderView() {
+		return null;
+	}
 }

@@ -61,4 +61,9 @@ public class PickClassViewTest extends AbstractViewTest<PickClassView> {
 		
 		assertEquals(expected, consoleWriterMock.getMockStream());
 	}
+	
+	@Test
+	public void testGetHeaderView() throws Exception {
+		assertNull(viewUnderTest.getHeaderView());
+	}
 }

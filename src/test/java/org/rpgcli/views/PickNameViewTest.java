@@ -33,4 +33,9 @@ public class PickNameViewTest extends AbstractViewTest<PickNameView> {
 		
 		assertEquals(expected, consoleWriterMock.getMockStream());
 	}
+
+	@Test
+	public void testGetHeaderView() throws Exception {
+		assertNull(viewUnderTest.getHeaderView());
+	}
 }

@@ -6,7 +6,7 @@ import org.rpgcli.console.ConsoleFontColor;
 public class StartMenuView extends AbstractView {
 
 	@Override
-	public void draw() {
+	public void drawView() {
 		getConsoleWriter().write("Welcome to RGP CLI game.").breakLine()
 					 .write("What would you like to do:").breakLine()
 					 .write("N. New Game.").breakLine()
@@ -23,4 +23,8 @@ public class StartMenuView extends AbstractView {
 		readInput();
 	}
 	
+	@Override
+	protected View getHeaderView() {
+		return null;
+	}
 }

@@ -8,6 +8,7 @@ public class PlayerCharacter implements Model {
 	private Integer healthPoints;
 	private Integer attackPower;
 	private Integer defencePower;
+	private Integer experiencePoints;
 	private Location currentLocation;
 
 	public PlayerCharacter(String name, CharacterClass charClass) {
@@ -17,6 +18,7 @@ public class PlayerCharacter implements Model {
 		this.healthPoints = 100;
 		this.attackPower = 20;
 		this.defencePower = 15;
+		this.experiencePoints = 0;
 		this.currentLocation = charClass.getStartLocation();
 	}
 
@@ -66,6 +68,14 @@ public class PlayerCharacter implements Model {
 
 	public void setDefencePower(Integer defencePower) {
 		this.defencePower = defencePower;
+	}
+
+	public Integer getExperiencePoints() {
+		return experiencePoints;
+	}
+
+	public void setExperiencePoints(Integer experiencePoints) {
+		this.experiencePoints = experiencePoints;
 	}
 
 	public Location getCurrentLocation() {

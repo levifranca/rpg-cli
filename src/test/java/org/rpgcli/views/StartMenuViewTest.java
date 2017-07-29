@@ -1,6 +1,7 @@
 package org.rpgcli.views;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -36,5 +37,9 @@ public class StartMenuViewTest extends AbstractViewTest<StartMenuView> {
 		
 		assertEquals(expected, consoleWriterMock.getMockStream());
 	}
-	
+
+	@Test
+	public void testGetHeaderView() throws Exception {
+		assertNull(viewUnderTest.getHeaderView());
+	}
 }

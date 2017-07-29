@@ -3,7 +3,7 @@ package org.rpgcli.views;
 public class PickNameView extends AbstractView {
 
 	@Override
-	public void draw() {
+	public void drawView() {
 		getConsoleWriter().write("Type the name of your character:").breakLine();
 		readInput();
 	}
@@ -14,4 +14,8 @@ public class PickNameView extends AbstractView {
 		readInput();
 	}
 
+	@Override
+	protected View getHeaderView() {
+		return null;
+	}
 }
