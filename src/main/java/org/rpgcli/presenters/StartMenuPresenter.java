@@ -1,41 +1,36 @@
 package org.rpgcli.presenters;
 
-import org.rpgcli.views.View;
+import org.rpgcli.views.StartMenuView;
 
-public class StartMenuPresenter implements Presenter {
+public class StartMenuPresenter extends AbstractPresenter {
 
-	private View view;
+	public static final String NEW_GAME_OPTION = "N";
+	public static final String QUIT_OPTION = "Q";
+
+	public StartMenuPresenter() {
+		super(new StartMenuView());
+	}
 	
 	@Override
 	public void start() {
-		view.draw();
+		getView().draw();
 	}
 	
 	@Override
 	public void setInput(String input) {
-		// FIXME Change for the actual code
-		switch (input) {
-		case "1":
-			// TODO
-			break;
-		case "Q":
-			System.exit(0);
-			break;
-		default:
-			getView().drawInvalidInputErrorMessage();
-			break;
+		if (NEW_GAME_OPTION.equals(input)) {
+			setNextPresenter(new PickNamePresenter());
+			return;
 		}
 		
-	}
-
-	@Override
-	public View getView() {
-		return view;
-	}
-
-	@Override
-	public void setView(View view) {
-		this.view = view;
+		if (QUIT_OPTION.equals(input)) {
+			setNextPresenter(null);
+			return;
+		}
+		
+		getView().drawInvalidInputErrorMessage();
+		
+		
 	}
 
 }

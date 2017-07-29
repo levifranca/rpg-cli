@@ -5,6 +5,8 @@ import org.rpgcli.views.View;
 
 public class StubPresenter implements Presenter {
 
+	private Presenter nextPresenter;
+	
 	@Override
 	public void start() {
 		// TODO Auto-generated method stub
@@ -27,6 +29,16 @@ public class StubPresenter implements Presenter {
 	public View getView() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Presenter getNextPresenter() {
+		return nextPresenter;
+	}
+
+	@Override
+	public void setNextPresenter(Presenter nextPresenter) {
+		this.nextPresenter = nextPresenter;
 	}
 
 }
