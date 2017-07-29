@@ -10,6 +10,16 @@ public class PlayerCharacter implements Model {
 	private Integer defencePower;
 	private Location currentLocation;
 
+	public PlayerCharacter(String name, CharacterClass charClass) {
+		// New Player TODO (move to a factory)
+		this.name = name;
+		this.charClass = charClass;
+		this.healthPoints = 100;
+		this.attackPower = 20;
+		this.defencePower = 15;
+		this.currentLocation = charClass.getStartLocation();
+	}
+
 	public Integer getId() {
 		return id;
 	}

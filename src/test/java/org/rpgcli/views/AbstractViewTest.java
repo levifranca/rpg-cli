@@ -4,9 +4,9 @@ import org.rpgcli.console.ConsoleReaderMock;
 import org.rpgcli.console.ConsoleWriterMock;
 import org.rpgcli.presenter.StubPresenter;
 
-public class AbstractViewTest {
+public class AbstractViewTest<T extends AbstractView> {
 
-	protected AbstractView viewUnderTest;
+	protected T viewUnderTest;
 	
 	protected ConsoleWriterMock consoleWriterMock;
 	protected ConsoleReaderMock consoleReaderMock;

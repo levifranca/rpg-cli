@@ -2,7 +2,7 @@ package org.rpgcli.presenters;
 
 import org.rpgcli.views.StartMenuView;
 
-public class StartMenuPresenter extends AbstractPresenter {
+public class StartMenuPresenter extends AbstractPresenter<StartMenuView> {
 
 	public static final String NEW_GAME_OPTION = "N";
 	public static final String QUIT_OPTION = "Q";

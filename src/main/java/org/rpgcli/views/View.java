@@ -6,6 +6,6 @@ public interface View {
 	public void draw();
 	public void drawInvalidInputErrorMessage();
 	
-	public Presenter getPresenter();
-	public void setPresenter(Presenter presenter);
+	public Presenter<?> getPresenter();
+	public void setPresenter(Presenter<?> presenter);
 }

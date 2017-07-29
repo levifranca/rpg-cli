@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-public class StartMenuViewTest extends AbstractViewTest {
+public class StartMenuViewTest extends AbstractViewTest<StartMenuView> {
 
 	@Before
 	public void setup() {

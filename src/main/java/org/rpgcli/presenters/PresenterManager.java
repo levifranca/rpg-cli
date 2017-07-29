@@ -2,7 +2,7 @@ package org.rpgcli.presenters;
 
 public class PresenterManager {
 
-	private Presenter currPresenter;
+	private Presenter<?> currPresenter;
 
 	public PresenterManager() {
 		currPresenter = new StartMenuPresenter();
@@ -17,11 +17,11 @@ public class PresenterManager {
 		System.exit(0);
 	}
 
-	public Presenter getCurrPresenter() {
+	public Presenter<?> getCurrPresenter() {
 		return currPresenter;
 	}
 
-	public void setCurrPresenter(Presenter currPresenter) {
+	public void setCurrPresenter(Presenter<?> currPresenter) {
 		this.currPresenter = currPresenter;
 	}
 

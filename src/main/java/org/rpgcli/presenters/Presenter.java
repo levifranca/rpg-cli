@@ -2,15 +2,15 @@ package org.rpgcli.presenters;
 
 import org.rpgcli.views.View;
 
-public interface Presenter {
+public interface Presenter<T extends View> {
 	
 	public void start();
 	
 	public void setInput(String input);
 	
-	public View getView();
-	public void setView(View view);
+	public T getView();
+	public void setView(T view);
 
-	public Presenter getNextPresenter();
-	public void setNextPresenter(Presenter nextPresenter);
+	public Presenter<?> getNextPresenter();
+	public void setNextPresenter(Presenter<?> nextPresenter);
 }

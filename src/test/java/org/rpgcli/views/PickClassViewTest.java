@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.rpgcli.models.CharacterClass;
 
-public class PickClassViewTest extends AbstractViewTest {
+public class PickClassViewTest extends AbstractViewTest<PickClassView> {
 	@Before
 	public void setup() {
 		List<CharacterClass> mockList = new ArrayList<>();
@@ -22,14 +22,15 @@ public class PickClassViewTest extends AbstractViewTest {
 		cc = new CharacterClass();
 		cc.setName("Paladin");
 		mockList.add(cc);
-		viewUnderTest = new PickClassView(mockList);
+		viewUnderTest = new PickClassView();
+		viewUnderTest.setCharacterClasses(mockList);
 		
 		super.setMocks();
 	}
 	
 	@Test
 	public void testDrawNullList() throws Exception {
-		viewUnderTest = new PickClassView(null);
+		viewUnderTest = new PickClassView();
 		super.setMocks();
 		viewUnderTest.draw();
 		

@@ -7,14 +7,7 @@ import org.rpgcli.models.CharacterClass;
 
 public class PickClassView extends AbstractView {
 
-	private List<CharacterClass> characterClasses;
-
-	public PickClassView(List<CharacterClass> characterClasses) {
-		if (characterClasses == null) {
-			characterClasses = new ArrayList<>();
-		}
-		this.characterClasses = characterClasses;
-	}
+	private List<CharacterClass> characterClasses = new ArrayList<>();
 
 	@Override
 	public void draw() {
@@ -30,6 +23,14 @@ public class PickClassView extends AbstractView {
 	public void drawInvalidInputErrorMessage() {
 		writeErrorMessage("Please, pick a valid option.");
 		readInput();
+	}
+
+	public List<CharacterClass> getCharacterClasses() {
+		return characterClasses;
+	}
+
+	public void setCharacterClasses(List<CharacterClass> characterClasses) {
+		this.characterClasses = characterClasses;
 	}
 
 }

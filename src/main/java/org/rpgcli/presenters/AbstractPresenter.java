@@ -2,12 +2,12 @@ package org.rpgcli.presenters;
 
 import org.rpgcli.views.View;
 
-public abstract class AbstractPresenter implements Presenter {
+public abstract class AbstractPresenter<T extends View> implements Presenter<T> {
 
-	private View view;
-	private Presenter nextPresenter;
+	private T view;
+	private Presenter<?> nextPresenter;
 
-	public AbstractPresenter(View view) {
+	public AbstractPresenter(T view) {
 		this.view = view;
 		if (view != null) {
 			view.setPresenter(this);
@@ -15,26 +15,23 @@ public abstract class AbstractPresenter implements Presenter {
 	}
 	
 	@Override
-	public View getView() {
+	public T getView() {
 		return view;
 	}
 
 	@Override
-	public void setView(View view) {
+	public void setView(T view) {
 		this.view = view;
 	}
 	
 	@Override
-	public Presenter getNextPresenter() {
+	public Presenter<?> getNextPresenter() {
 		return this.nextPresenter;
 	}
 	
 	@Override
-	public void setNextPresenter(Presenter nextPresenter) {
+	public void setNextPresenter(Presenter<?> nextPresenter) {
 		this.nextPresenter = nextPresenter;
 	}
-
-	public abstract void start();
-	public abstract void setInput(String input);
 
 }

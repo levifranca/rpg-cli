@@ -3,9 +3,9 @@ package org.rpgcli.presenter;
 import org.rpgcli.presenters.Presenter;
 import org.rpgcli.views.View;
 
-public class StubPresenter implements Presenter {
+public class StubPresenter implements Presenter<View> {
 
-	private Presenter nextPresenter;
+	private Presenter<?> nextPresenter;
 	
 	@Override
 	public void start() {
@@ -32,12 +32,12 @@ public class StubPresenter implements Presenter {
 	}
 
 	@Override
-	public Presenter getNextPresenter() {
+	public Presenter<?> getNextPresenter() {
 		return nextPresenter;
 	}
 
 	@Override
-	public void setNextPresenter(Presenter nextPresenter) {
+	public void setNextPresenter(Presenter<?> nextPresenter) {
 		this.nextPresenter = nextPresenter;
 	}
 

@@ -1,15 +1,12 @@
 package org.rpgcli.presenters;
 
-import org.rpgcli.models.Game;
+import org.rpgcli.utils.StringUtils;
 import org.rpgcli.views.PickNameView;
 
-public class PickNamePresenter extends AbstractPresenter {
-	
-	private Game game;
-	
+public class PickNamePresenter extends AbstractPresenter<PickNameView> {
+		
 	public PickNamePresenter() {
 		super(new PickNameView());
-		this.game = new Game();
 	}
 
 	@Override
@@ -19,11 +16,11 @@ public class PickNamePresenter extends AbstractPresenter {
 
 	@Override
 	public void setInput(String input) {
-		if (input == null || input.trim().isEmpty()) {
+		if (StringUtils.isBlank(input)) {
 			getView().drawInvalidInputErrorMessage();
 			return;
 		}
-		setNextPresenter(new PickClassPresenter());
+		setNextPresenter(new PickClassPresenter(input));
 	}
 
 }

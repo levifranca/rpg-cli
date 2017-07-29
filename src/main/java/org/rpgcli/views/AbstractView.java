@@ -10,18 +10,18 @@ import org.rpgcli.presenters.Presenter;
 
 public abstract class AbstractView implements View {
 
-	private Presenter presenter;
+	private Presenter<?> presenter;
 	private ConsoleWriter consoleWriter = ConsoleWriterImpl.getInstance();
 	private ConsoleReader consoleReader = ConsoleReaderImpl.getInstance();
 	
 	
 	@Override
-	public Presenter getPresenter() {
+	public Presenter<?> getPresenter() {
 		return presenter;
 	}
 
 	@Override
-	public void setPresenter(Presenter presenter) {
+	public void setPresenter(Presenter<?> presenter) {
 		this.presenter = presenter;
 	}
 
@@ -48,8 +48,5 @@ public abstract class AbstractView implements View {
 	protected void readInput() {
 		getPresenter().setInput(getConsoleReader().readInput());
 	}
-	
-	public abstract void draw();
-	public abstract void drawInvalidInputErrorMessage();
 	
 }
