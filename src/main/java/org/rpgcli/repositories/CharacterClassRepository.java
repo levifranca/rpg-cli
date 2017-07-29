@@ -8,6 +8,8 @@ import org.rpgcli.models.CharacterClass;
 
 public class CharacterClassRepository extends AbstractRepository<CharacterClass> {
 
+	private LocationRepository locationRepo;
+	
 	public CharacterClassRepository() {
 		setDataProvider(new XCSVDataProvider());
 	}
@@ -18,6 +20,7 @@ public class CharacterClassRepository extends AbstractRepository<CharacterClass>
 					   CharacterClass charClass = new CharacterClass();
 					   charClass.setId(Integer.valueOf(record[0]));
 					   charClass.setName(record[1]);
+					   charClass.setStartLocation(locationRepo.findById(Integer.valueOf(record[2])));
 					   return charClass;
 				   }).collect(Collectors.toList());
 	}
