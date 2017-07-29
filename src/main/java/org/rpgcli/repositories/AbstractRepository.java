@@ -11,17 +11,12 @@ import org.rpgcli.models.Model;
 public abstract class AbstractRepository<T extends Model> implements Repository<T> {
 
 	private DataProvider dataProvider;
-
 	private Map<Integer, T> cache = new HashMap<>();
 
-	public DataProvider getDataProvider() {
-		return dataProvider;
-	}
-
-	public void setDataProvider(DataProvider dataProvider) {
+	public AbstractRepository(DataProvider dataProvider) {
 		this.dataProvider = dataProvider;
 	}
-
+	
 	@Override
 	public T findById(Integer id) {
 		if (cache.isEmpty()) {
@@ -52,6 +47,14 @@ public abstract class AbstractRepository<T extends Model> implements Repository<
 		return classes;
 	}
 
+	public DataProvider getDataProvider() {
+		return dataProvider;
+	}
+
+	public void setDataProvider(DataProvider dataProvider) {
+		this.dataProvider = dataProvider;
+	}
+	
 	protected abstract String getModelSourceName();
 	protected abstract List<T> getModelList(List<String[]> data);
 	

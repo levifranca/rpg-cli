@@ -11,7 +11,8 @@ public class CharacterClassRepository extends AbstractRepository<CharacterClass>
 	private LocationRepository locationRepo;
 	
 	public CharacterClassRepository() {
-		setDataProvider(new XCSVDataProvider());
+		super(new XCSVDataProvider());
+		locationRepo = new LocationRepository();
 	}
 	
 	protected List<CharacterClass> getModelList(List<String[]> data) {
@@ -26,7 +27,7 @@ public class CharacterClassRepository extends AbstractRepository<CharacterClass>
 	}
 
 	protected String getModelSourceName() {
-		return "char-class";
+		return "char-classes";
 	}
 	
 }

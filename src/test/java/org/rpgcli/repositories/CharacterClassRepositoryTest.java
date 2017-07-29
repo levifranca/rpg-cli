@@ -38,7 +38,7 @@ public class CharacterClassRepositoryTest {
 	@Test
 	public void testFindAllEmpty() throws Exception {
 		List<String[]> mockData = Collections.emptyList();
-		when(dataProviderMock.fetchData("char-class")).thenReturn(mockData);
+		when(dataProviderMock.fetchData("char-classes")).thenReturn(mockData);
 
 		List<CharacterClass> classes = repoUnderTest.findAll();
 
@@ -86,7 +86,7 @@ public class CharacterClassRepositoryTest {
 
 	@Test
 	public void testFindByIdNotFound() throws Exception {
-		when(dataProviderMock.fetchData("char-class")).thenReturn(Collections.emptyList());
+		when(dataProviderMock.fetchData("char-classes")).thenReturn(Collections.emptyList());
 
 		CharacterClass charClass = repoUnderTest.findById(1);
 
@@ -140,7 +140,7 @@ public class CharacterClassRepositoryTest {
 		List<String[]> mockData = new ArrayList<>();
 		mockData.add(new String[] { "1", "Class 1", "2" });
 		mockData.add(new String[] { "2", "Class 2", "2" });
-		when(dataProviderMock.fetchData("char-class")).thenReturn(mockData);
+		when(dataProviderMock.fetchData("char-classes")).thenReturn(mockData);
 
 		Location locationMock = new Location();
 		locationMock.setId(2);
