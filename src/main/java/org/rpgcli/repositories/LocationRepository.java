@@ -3,13 +3,13 @@ package org.rpgcli.repositories;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.rpgcli.dataproviders.XCSVDataProvider;
+import org.rpgcli.data.XCSVDataHandler;
 import org.rpgcli.models.Location;
 
 public class LocationRepository extends AbstractRepository<Location> {
 	
 	public LocationRepository() {
-		super(new XCSVDataProvider());
+		super(new XCSVDataHandler());
 	}
 	
 	@Override
@@ -39,13 +39,18 @@ public class LocationRepository extends AbstractRepository<Location> {
 			return;
 		}
 		
-		List<String[]> locToLoc = getDataProvider().fetchData("locations-locations");
+		List<String[]> locToLoc = getDataHandler().fetchData("locations-locations");
 		
 		locToLoc.forEach(record -> {
 			Location from = locations.get(Integer.valueOf(record[0])-1);
 			Location to = locations.get(Integer.valueOf(record[1])-1);
 			from.addClosebyLocation(to);
 		});
+	}
+
+	@Override
+	protected String[] getModelArray(Location data) {
+		return new String[0];
 	}
 
 }

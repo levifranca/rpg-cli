@@ -1,18 +1,20 @@
-package org.rpgcli.dataproviders;
+package org.rpgcli.data;
 
 import static org.junit.Assert.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
+import org.rpgcli.data.XCSVDataHandler;
 
 public class XCSVDataProviderTest {
 
-	private XCSVDataProvider providerUnderTest = new XCSVDataProvider();
+	private XCSVDataHandler handlerUnderTest = new XCSVDataHandler();
 	
 	@Test
 	public void testFetchSingleLine() throws Exception {
-		List<String[]> data = providerUnderTest.fetchData("test");
+		List<String[]> data = handlerUnderTest.fetchData("test");
 		
 		assertNotNull(data);
 		assertFalse(data.isEmpty());
@@ -27,7 +29,7 @@ public class XCSVDataProviderTest {
 	
 	@Test
 	public void testFetchMultipleLines() throws Exception {
-		List<String[]> data = providerUnderTest.fetchData("testMulti");
+		List<String[]> data = handlerUnderTest.fetchData("testMulti");
 		
 		assertNotNull(data);
 		assertFalse(data.isEmpty());
@@ -48,7 +50,7 @@ public class XCSVDataProviderTest {
 	
 	@Test
 	public void testFileNotFound() throws Exception {
-		List<String[]> data = providerUnderTest.fetchData("not-found");
+		List<String[]> data = handlerUnderTest.fetchData("not-found");
 		
 		assertNotNull(data);
 		assertTrue(data.isEmpty());
@@ -56,7 +58,7 @@ public class XCSVDataProviderTest {
 	
 	@Test
 	public void testEmptyFile() throws Exception {
-		List<String[]> data = providerUnderTest.fetchData("empty");
+		List<String[]> data = handlerUnderTest.fetchData("empty");
 		
 		assertNotNull(data);
 		assertTrue(data.isEmpty());
@@ -64,9 +66,16 @@ public class XCSVDataProviderTest {
 	
 	@Test
 	public void testEmptyFilename() throws Exception {
-		List<String[]> data = providerUnderTest.fetchData("");
+		List<String[]> data = handlerUnderTest.fetchData("");
 		
 		assertNotNull(data);
 		assertTrue(data.isEmpty());
+	}
+	
+	@Test
+	public void testSave() throws Exception {
+		assertFalse(handlerUnderTest.saveData(null, Arrays.asList(new String[]{}, new String[]{})));
+		assertFalse(handlerUnderTest.saveData("", null));
+		assertFalse(handlerUnderTest.saveData("sdasd", Arrays.asList(new String[]{}, new String[]{})));
 	}
 }

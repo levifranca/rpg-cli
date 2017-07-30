@@ -33,8 +33,7 @@ public class ConsoleReaderImpl implements ConsoleReader {
 		try {
 			result = getBufferedReader().readLine();
 		} catch (IOException e) {
-			// TODO fix logs
-			System.err.println("Could not read input.: " + e);
+			// do nothing
 		}
 		
 		return result;

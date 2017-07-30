@@ -1,23 +1,27 @@
 package org.rpgcli.views;
 
+import org.rpgcli.models.PlayerCharacter;
+
 public class SaveView extends AbstractView {
 
-	@Override
-	public void drawInvalidInputErrorMessage() {
-		// TODO Auto-generated method stub
+	private PlayerCharacter player;
 
+	public SaveView(PlayerCharacter player) {
+		this.player = player;
 	}
 
 	@Override
 	protected View getHeaderView() {
-		// TODO Auto-generated method stub
-		return null;
+		return new PlayerStatusHeaderView(player);
 	}
 
 	@Override
 	protected void drawView() {
-		// TODO Auto-generated method stub
-
+		getConsoleWriter()
+		.write("Are you sure you want to save this game?").breakLine()
+		.write("Y. Yes").breakLine()
+		.write("N. No").breakLine();
+		readInput();
 	}
 
 }

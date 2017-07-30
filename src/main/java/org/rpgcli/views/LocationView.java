@@ -9,12 +9,6 @@ public class LocationView extends AbstractView {
 	public LocationView(PlayerCharacter player) {
 		this.player = player;
 	}
-	
-	@Override
-	public void drawInvalidInputErrorMessage() {
-		writeErrorMessage("Invalid option! Please pick a valid option.");
-		readInput();
-	}
 
 	@Override
 	protected View getHeaderView() {

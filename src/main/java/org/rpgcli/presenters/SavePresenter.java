@@ -1,25 +1,51 @@
 package org.rpgcli.presenters;
 
 import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.repositories.PlayerRepository;
+import org.rpgcli.utils.Constants;
+import org.rpgcli.utils.StringUtils;
 import org.rpgcli.views.SaveView;
 
 public class SavePresenter extends AbstractPresenter<SaveView> {
 
+	private PlayerRepository playerRepository;
+	private PlayerCharacter player;
+	
 	public SavePresenter(PlayerCharacter player) {
-		super(new SaveView());
-		// TODO Auto-generated constructor stub
+		super(new SaveView(player));
+		this.player = player;
+		playerRepository = new PlayerRepository();
 	}
 
 	@Override
 	public void start() {
-		// TODO Auto-generated method stub
-		
+		getView().draw();
 	}
 
 	@Override
 	public void setInput(String input) {
-		// TODO Auto-generated method stub
-		
+		if (StringUtils.isBlank(input)) {
+			getView().drawInvalidInputErrorMessage();
+			return;
+		}
+
+		switch (input) {
+		case Constants.YES_OPTION:
+			playerRepository.save(player);
+			setNextPresenter(new SaveConfirmationPresenter(player));
+			break;
+		case Constants.NO_OPTION:
+			setNextPresenter(new LocationPresenter(player));
+			break;
+
+		default:
+			getView().drawInvalidInputErrorMessage();
+			break;
+		}
+	}
+
+	public void setPlayRepository(PlayerRepository playerRepository) {
+		this.playerRepository = playerRepository;
 	}
 
 }

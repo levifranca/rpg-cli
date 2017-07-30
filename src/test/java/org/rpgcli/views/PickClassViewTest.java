@@ -55,11 +55,9 @@ public class PickClassViewTest extends AbstractViewTest<PickClassView> {
 	public void testDrawInvalidInputErrorMessage() throws Exception {
 		viewUnderTest.drawInvalidInputErrorMessage();
 		
-		String expected = "\u001B[41m\u001B[30m"
-				+ "Please, pick a valid option."
-				+ "\u001B[0m\n";
-		
-		assertEquals(expected, consoleWriterMock.getMockStream());
+		assertEquals("\u001B[41m\u001B[30m"
+				+ "Invalid option! Please pick a valid option."
+				+ "\u001B[0m\n", consoleWriterMock.getMockStream());
 	}
 	
 	@Test

@@ -2,29 +2,37 @@ package org.rpgcli.views;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.when;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
-public class StartMenuViewTest extends AbstractViewTest<StartMenuView> {
-
+public class SaveConfirmationViewTest extends AbstractViewTest<SaveConfirmationView> {
+	
+	@Mock
+	private PlayerStatusHeaderView headerMock;
+	
 	@Before
 	public void setup() {
-		viewUnderTest = new StartMenuView();
+		MockitoAnnotations.initMocks(this);
+		
+		viewUnderTest = new SaveConfirmationView();
+		viewUnderTest = spy(viewUnderTest);
 		
 		super.setMocks();
 	}
 	
 	@Test
-	public void testBasicDraw() throws Exception {
+	public void testBasicDraw() throws Exception {	
+		when(viewUnderTest.getHeaderView()).thenReturn(null);
+
 		viewUnderTest.draw();
 		
-		String expected = "Welcome to RGP CLI game.\n"
-				+ "What would you like to do:\n"
-				+ "N. New Game.\n"
-				+ "\n"
-				+ "Q. Quit.\n"
-				+ "Enter your option below:\n";
+		String expected = "Game saved successfully!\n";
+		
 		assertEquals(expected, consoleWriterMock.getMockStream());
 	}
 	
@@ -36,7 +44,7 @@ public class StartMenuViewTest extends AbstractViewTest<StartMenuView> {
 				+ "Invalid option! Please pick a valid option."
 				+ "\u001B[0m\n", consoleWriterMock.getMockStream());
 	}
-
+	
 	@Test
 	public void testGetHeaderView() throws Exception {
 		assertNull(viewUnderTest.getHeaderView());

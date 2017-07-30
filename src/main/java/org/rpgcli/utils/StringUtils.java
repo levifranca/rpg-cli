@@ -2,6 +2,8 @@ package org.rpgcli.utils;
 
 public class StringUtils {
 
+	private StringUtils() {}
+	
 	public static boolean isBlank(String str) {
 		return str == null
 			|| str.trim().isEmpty();

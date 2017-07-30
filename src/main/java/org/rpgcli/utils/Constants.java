@@ -2,6 +2,8 @@ package org.rpgcli.utils;
 
 public class Constants {
 
+	private Constants() {}
+	
 	public static final String NEW_GAME_OPTION = "N";
 	public static final String QUIT_OPTION = "Q";
 	public static final String EXPLORE_OPTION = "E";

@@ -3,7 +3,7 @@ package org.rpgcli.repositories;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.rpgcli.dataproviders.XCSVDataProvider;
+import org.rpgcli.data.XCSVDataHandler;
 import org.rpgcli.models.CharacterClass;
 
 public class CharacterClassRepository extends AbstractRepository<CharacterClass> {
@@ -11,7 +11,7 @@ public class CharacterClassRepository extends AbstractRepository<CharacterClass>
 	private LocationRepository locationRepo;
 	
 	public CharacterClassRepository() {
-		super(new XCSVDataProvider());
+		super(new XCSVDataHandler());
 		locationRepo = new LocationRepository();
 	}
 	
@@ -28,6 +28,11 @@ public class CharacterClassRepository extends AbstractRepository<CharacterClass>
 
 	protected String getModelSourceName() {
 		return "char-classes";
+	}
+
+	@Override
+	protected String[] getModelArray(CharacterClass data) {
+		return new String[0];
 	}
 	
 }

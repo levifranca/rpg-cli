@@ -1,9 +1,6 @@
 package org.rpgcli.repositories;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -15,7 +12,7 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.rpgcli.dataproviders.DataProvider;
+import org.rpgcli.data.DataHandler;
 import org.rpgcli.models.Location;
 
 public class LocationRepositoryTest {
@@ -23,7 +20,7 @@ public class LocationRepositoryTest {
 	private LocationRepository repoUnderTest;
 
 	@Mock
-	private DataProvider dataProviderMock;
+	private DataHandler dataProviderMock;
 
 	@Before
 	public void setup() {
@@ -90,6 +87,12 @@ public class LocationRepositoryTest {
 
 		assertNull(location);
 
+	}
+	
+	@Test
+	public void testGetModelArray() throws Exception {
+		assertEquals(0, repoUnderTest.getModelArray(null).length);
+		assertEquals(0, repoUnderTest.getModelArray(new Location()).length);
 	}
 	
 	private void mockDataProviderData() {

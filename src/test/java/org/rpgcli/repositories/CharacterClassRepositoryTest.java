@@ -15,7 +15,7 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.rpgcli.dataproviders.DataProvider;
+import org.rpgcli.data.DataHandler;
 import org.rpgcli.models.CharacterClass;
 import org.rpgcli.models.Location;
 
@@ -25,7 +25,7 @@ public class CharacterClassRepositoryTest {
 	private CharacterClassRepository repoUnderTest;
 
 	@Mock
-	private DataProvider dataProviderMock;
+	private DataHandler dataProviderMock;
 
 	@Mock
 	private LocationRepository locRepoMock;
@@ -136,6 +136,12 @@ public class CharacterClassRepositoryTest {
 
 	}
 
+	@Test
+	public void testGetModelArray() throws Exception {
+		assertEquals(0, repoUnderTest.getModelArray(null).length);
+		assertEquals(0, repoUnderTest.getModelArray(new CharacterClass()).length);
+	}
+	
 	private void mockDataProviderData() {
 		List<String[]> mockData = new ArrayList<>();
 		mockData.add(new String[] { "1", "Class 1", "2" });

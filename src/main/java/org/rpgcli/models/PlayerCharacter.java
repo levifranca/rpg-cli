@@ -11,6 +11,10 @@ public class PlayerCharacter implements Model {
 	private Integer experiencePoints;
 	private Location currentLocation;
 
+	public PlayerCharacter() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public PlayerCharacter(String name, CharacterClass charClass) {
 		// New Player TODO (move to a factory)
 		this.name = name;

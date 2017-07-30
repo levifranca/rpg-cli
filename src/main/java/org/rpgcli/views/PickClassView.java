@@ -19,12 +19,6 @@ public class PickClassView extends AbstractView {
 		readInput();
 	}
 
-	@Override
-	public void drawInvalidInputErrorMessage() {
-		writeErrorMessage("Please, pick a valid option.");
-		readInput();
-	}
-
 	public List<CharacterClass> getCharacterClasses() {
 		return characterClasses;
 	}

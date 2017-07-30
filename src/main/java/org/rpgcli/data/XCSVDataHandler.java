@@ -1,4 +1,4 @@
-package org.rpgcli.dataproviders;
+package org.rpgcli.data;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class XCSVDataProvider implements DataProvider {
+public class XCSVDataHandler implements DataHandler {
 
 	@Override
 	public List<String[]> fetchData(String dataSourceName) {
@@ -32,6 +32,12 @@ public class XCSVDataProvider implements DataProvider {
 										 }).collect(Collectors.toList());
 								
 		return data;
+	}
+
+	@Override
+	public boolean saveData(String dataSourceName, List<String[]> dataArray) {
+		// For now, in this project, we won't save data on eXtende-CSV files.
+		return false;
 	}
 
 }

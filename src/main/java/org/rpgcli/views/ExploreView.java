@@ -12,12 +12,6 @@ public class ExploreView extends AbstractView {
 	}
 	
 	@Override
-	public void drawInvalidInputErrorMessage() {
-		writeErrorMessage("Invalid option! Please pick a valid option.");
-		readInput();
-	}
-
-	@Override
 	protected View getHeaderView() {
 		return new PlayerStatusHeaderView(player);
 	}
