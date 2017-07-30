@@ -7,7 +7,7 @@ public class Enemy implements Model {
 	private Integer healthPoints;
 	private Integer attackPower;
 	private Integer defencePower;
-	private Integer xpGiven;
+	private Integer experienceGiven;
 
 	public Integer getId() {
 		return id;
@@ -49,12 +49,12 @@ public class Enemy implements Model {
 		this.defencePower = defencePower;
 	}
 
-	public Integer getXpGiven() {
-		return xpGiven;
+	public Integer getExperienceGiven() {
+		return experienceGiven;
 	}
 
-	public void setXpGiven(Integer xpGiven) {
-		this.xpGiven = xpGiven;
+	public void setExperienceGiven(Integer xpGiven) {
+		this.experienceGiven = xpGiven;
 	}
 
 }
