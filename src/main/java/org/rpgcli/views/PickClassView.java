@@ -19,10 +19,6 @@ public class PickClassView extends AbstractView {
 		readInput();
 	}
 
-	public List<CharacterClass> getCharacterClasses() {
-		return characterClasses;
-	}
-
 	public void setCharacterClasses(List<CharacterClass> characterClasses) {
 		this.characterClasses = characterClasses;
 	}
