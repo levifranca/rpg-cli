@@ -3,8 +3,12 @@ package org.rpgcli.views;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
+import org.rpgcli.models.PlayerCharacter;
 
 public class StartMenuViewTest extends AbstractViewTest<StartMenuView> {
 
@@ -19,9 +23,35 @@ public class StartMenuViewTest extends AbstractViewTest<StartMenuView> {
 	public void testBasicDraw() throws Exception {
 		viewUnderTest.draw();
 		
-		String expected = "Welcome to RGP CLI game.\n"
+		String expected = "Welcome to RPG CLI game.\n"
 				+ "What would you like to do:\n"
 				+ "N. New Game.\n"
+				+ "\n"
+				+ "Q. Quit.\n"
+				+ "Enter your option below:\n";
+		assertEquals(expected, consoleWriterMock.getMockStream());
+	}
+	
+	@Test
+	public void testDrawWithSavedGames() throws Exception {
+		List<PlayerCharacter> savedPlayersMock = new ArrayList<>();
+		PlayerCharacter playerMock = new PlayerCharacter();
+		playerMock.setName("player 1");
+		playerMock.setExperiencePoints(10);
+		savedPlayersMock.add(playerMock);
+		playerMock = new PlayerCharacter();
+		playerMock.setName("player 2");
+		playerMock.setExperiencePoints(20);
+		savedPlayersMock.add(playerMock);
+		viewUnderTest.setSavedPlayers(savedPlayersMock);
+		
+		viewUnderTest.draw();
+		
+		String expected = "Welcome to RPG CLI game.\n"
+				+ "What would you like to do:\n"
+				+ "N. New Game.\n"
+				+ "1. player 1\tXP: 10\n"
+				+ "2. player 2\tXP: 20\n"
 				+ "\n"
 				+ "Q. Quit.\n"
 				+ "Enter your option below:\n";
