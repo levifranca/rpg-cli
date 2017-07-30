@@ -46,7 +46,7 @@ public class PickClassPresenter extends AbstractPresenter<PickClassView> {
 			return;
 		}
 		
-		PlayerCharacter player = new PlayerCharacter(playerName, classes.get(option-1));
+		PlayerCharacter player = PlayerCharacter.newPlayer(playerName, classes.get(option-1));
 		LocationPresenter nextPresenter = new LocationPresenter(player);
 		setNextPresenter(nextPresenter);
 	}

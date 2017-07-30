@@ -67,7 +67,7 @@ public class LocationRepository extends AbstractRepository<Location> {
 			Location loc = locations.get(Integer.valueOf(record[0])-1);
 			Integer enemyId = Integer.valueOf(record[1]);
 			Enemy enemy = enemyRepo.findById(enemyId);
-			loc.addAvailableEnemies(enemy);;
+			loc.addAvailableEnemies(enemy);
 		});
 	}
 

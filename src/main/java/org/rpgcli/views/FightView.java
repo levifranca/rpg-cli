@@ -1,4 +1,4 @@
-package org.rpgcli.presenters;
+package org.rpgcli.views;
 
 import org.rpgcli.models.Enemy;
 import org.rpgcli.models.PlayerCharacter;
@@ -12,20 +12,27 @@ public class FightView extends AbstractView {
 
 	public FightView(PlayerCharacter player, Enemy enemy) {
 		this.player = player;
-		// TODO Auto-generated constructor stub
 		this.enemy = enemy;
 	}
 
 	@Override
 	protected View getHeaderView() {
-		// TODO Auto-generated method stub
-		return null;
+		return new PlayerStatusHeaderView(player);
 	}
 
 	@Override
 	protected void drawView() {
-		// TODO Auto-generated method stub
-
+		getConsoleWriter().breakLine()
+		.write(enemy.getName() + 
+				"\tHP: " + enemy.getHealthPoints() + 
+				"\tAT: " + enemy.getAttackPower() + 
+				"\tDF: " + enemy.getDefencePower())
+		.breakLine().breakLine().breakLine()
+		.write("A. Attack").breakLine()
+		.write("D. Defend").breakLine()
+		.write("R. Run Away").breakLine();
+		
+		readInput();
 	}
 
 }

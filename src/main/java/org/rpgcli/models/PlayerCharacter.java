@@ -1,45 +1,22 @@
 package org.rpgcli.models;
 
-public class PlayerCharacter implements Model {
+public class PlayerCharacter extends Fighter {
 
-	private Integer id;
-	private String name;
 	private CharacterClass charClass;
-	private Integer healthPoints;
-	private Integer attackPower;
-	private Integer defencePower;
 	private Integer experiencePoints;
 	private Location currentLocation;
 
-	public PlayerCharacter() {
-		// TODO Auto-generated constructor stub
-	}
-	
-	public PlayerCharacter(String name, CharacterClass charClass) {
-		// New Player TODO (move to a factory)
-		this.name = name;
-		this.charClass = charClass;
-		this.healthPoints = 100;
-		this.attackPower = 20;
-		this.defencePower = 15;
-		this.experiencePoints = 0;
-		this.currentLocation = charClass.getStartLocation();
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+	public static PlayerCharacter newPlayer(String name, CharacterClass charClass) {
+		PlayerCharacter player = new PlayerCharacter();
+		player.setName(name);
+		player.setCharClass(charClass);
+		player.setHealthPoints(100);
+		player.setAttackPower(20);
+		player.setDefencePower(15);
+		player.setExperiencePoints(0);
+		player.setCurrentLocation(charClass.getStartLocation());
+		
+		return player;
 	}
 
 	public CharacterClass getCharClass() {
@@ -48,30 +25,6 @@ public class PlayerCharacter implements Model {
 
 	public void setCharClass(CharacterClass charClass) {
 		this.charClass = charClass;
-	}
-
-	public Integer getHealthPoints() {
-		return healthPoints;
-	}
-
-	public void setHealthPoints(Integer healthPoints) {
-		this.healthPoints = healthPoints;
-	}
-
-	public Integer getAttackPower() {
-		return attackPower;
-	}
-
-	public void setAttackPower(Integer attackPower) {
-		this.attackPower = attackPower;
-	}
-
-	public Integer getDefencePower() {
-		return defencePower;
-	}
-
-	public void setDefencePower(Integer defencePower) {
-		this.defencePower = defencePower;
 	}
 
 	public Integer getExperiencePoints() {
