@@ -1,12 +1,12 @@
 package org.rpgcli.views;
 
-import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.models.Player;
 
 public class LocationView extends AbstractView {
 
-	private PlayerCharacter player;
+	private Player player;
 	
-	public LocationView(PlayerCharacter player) {
+	public LocationView(Player player) {
 		this.player = player;
 	}
 

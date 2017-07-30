@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.rpgcli.data.LocalFileDataHandler;
-import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.models.Player;
 
-public class PlayerRepository extends AbstractRepository<PlayerCharacter> {
+public class PlayerRepository extends AbstractRepository<Player> {
 
 	private CharacterClassRepository charClassRepo;
 	private LocationRepository locationRepo;
@@ -24,12 +24,12 @@ public class PlayerRepository extends AbstractRepository<PlayerCharacter> {
 	}
 
 	@Override
-	protected List<PlayerCharacter> getModelList(List<String[]> data) {
+	protected List<Player> getModelList(List<String[]> data) {
 		if (data == null || data.isEmpty()) {
 			return Collections.emptyList();
 		}
 		return data.stream().map(record -> {
-			PlayerCharacter player = new PlayerCharacter();
+			Player player = new Player();
 			player.setId(Integer.valueOf(record[0]));
 			player.setName(record[1]);
 			player.setCharClass(charClassRepo.findById(Integer.valueOf(record[2])));
@@ -43,7 +43,7 @@ public class PlayerRepository extends AbstractRepository<PlayerCharacter> {
 	}
 
 	@Override
-	protected String[] getModelArray(PlayerCharacter data) {
+	protected String[] getModelArray(Player data) {
 		if (data == null) {
 			return new String[0];
 		}

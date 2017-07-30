@@ -3,16 +3,16 @@ package org.rpgcli.presenters;
 import java.util.List;
 
 import org.rpgcli.models.Enemy;
-import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.models.Player;
 import org.rpgcli.utils.Constants;
 import org.rpgcli.utils.StringUtils;
 import org.rpgcli.views.PickFightView;
 
 public class PickFightPresenter extends AbstractPresenter<PickFightView> {
 
-	private PlayerCharacter player;
+	private Player player;
 
-	public PickFightPresenter(PlayerCharacter player) {
+	public PickFightPresenter(Player player) {
 		super(new PickFightView(player));
 		this.player = player;
 	}

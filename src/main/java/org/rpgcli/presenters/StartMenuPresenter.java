@@ -2,7 +2,7 @@ package org.rpgcli.presenters;
 
 import java.util.List;
 
-import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.models.Player;
 import org.rpgcli.repositories.PlayerRepository;
 import org.rpgcli.utils.Constants;
 import org.rpgcli.utils.StringUtils;
@@ -15,7 +15,7 @@ import org.rpgcli.views.StartMenuView;
 public class StartMenuPresenter extends AbstractPresenter<StartMenuView> {
 
 	private PlayerRepository playerRepo;
-	private List<PlayerCharacter> savedGames;
+	private List<Player> savedGames;
 	
 	public StartMenuPresenter() {
 		super(new StartMenuView());
@@ -60,7 +60,7 @@ public class StartMenuPresenter extends AbstractPresenter<StartMenuView> {
 		this.playerRepo = playerRepo;
 	}
 
-	public void setSavedGames(List<PlayerCharacter> savedGames) {
+	public void setSavedGames(List<Player> savedGames) {
 		this.savedGames = savedGames;
 	}
 

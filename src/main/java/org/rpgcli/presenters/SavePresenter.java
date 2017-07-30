@@ -1,6 +1,6 @@
 package org.rpgcli.presenters;
 
-import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.models.Player;
 import org.rpgcli.repositories.PlayerRepository;
 import org.rpgcli.utils.Constants;
 import org.rpgcli.utils.StringUtils;
@@ -9,9 +9,9 @@ import org.rpgcli.views.SaveView;
 public class SavePresenter extends AbstractPresenter<SaveView> {
 
 	private PlayerRepository playerRepository;
-	private PlayerCharacter player;
+	private Player player;
 	
-	public SavePresenter(PlayerCharacter player) {
+	public SavePresenter(Player player) {
 		super(new SaveView(player));
 		this.player = player;
 		playerRepository = new PlayerRepository();

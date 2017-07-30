@@ -3,7 +3,7 @@ package org.rpgcli.presenters;
 import java.util.List;
 
 import org.rpgcli.models.Location;
-import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.models.Player;
 import org.rpgcli.repositories.LocationRepository;
 import org.rpgcli.utils.Constants;
 import org.rpgcli.utils.StringUtils;
@@ -12,9 +12,9 @@ import org.rpgcli.views.ExploreView;
 public class ExplorePresenter extends AbstractPresenter<ExploreView> {
 
 	private LocationRepository locRepo;
-	private PlayerCharacter player;
+	private Player player;
 	
-	public ExplorePresenter(PlayerCharacter player) {
+	public ExplorePresenter(Player player) {
 		super(new ExploreView(player));
 		this.player = player;
 		locRepo = new LocationRepository();

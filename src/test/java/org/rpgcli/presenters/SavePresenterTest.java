@@ -11,7 +11,7 @@ import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.models.Player;
 import org.rpgcli.repositories.PlayerRepository;
 import org.rpgcli.utils.Constants;
 import org.rpgcli.views.SaveView;
@@ -28,7 +28,7 @@ public class SavePresenterTest {
 	private PlayerRepository playerRepoMock;
 	
 	@Mock
-	private PlayerCharacter playerMock;
+	private Player playerMock;
 	
 	@Before
 	public void setup() {
@@ -72,7 +72,7 @@ public class SavePresenterTest {
 
 		assertNotNull(presenterUnderTest.getNextPresenter());
 		assertTrue(presenterUnderTest.getNextPresenter() instanceof SaveConfirmationPresenter);
-		verify(playerRepoMock).save(ArgumentMatchers.any(PlayerCharacter.class));
+		verify(playerRepoMock).save(ArgumentMatchers.any(Player.class));
 	}
 	
 	@Test
@@ -82,7 +82,7 @@ public class SavePresenterTest {
 		assertNotNull(presenterUnderTest.getNextPresenter());
 		assertTrue(presenterUnderTest.getNextPresenter() instanceof LocationPresenter);
 
-		verify(playerRepoMock, never()).save(ArgumentMatchers.any(PlayerCharacter.class));
+		verify(playerRepoMock, never()).save(ArgumentMatchers.any(Player.class));
 	}
 	
 }

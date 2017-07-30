@@ -3,11 +3,11 @@ package org.rpgcli.views;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.models.Player;
 
 public class StartMenuView extends AbstractView {
 
-	private List<PlayerCharacter> savedPlayers = new ArrayList<>();
+	private List<Player> savedPlayers = new ArrayList<>();
 	
 	@Override
 	public void drawView() {
@@ -31,7 +31,7 @@ public class StartMenuView extends AbstractView {
 		return null;
 	}
 
-	public void setSavedPlayers(List<PlayerCharacter> savedPlayers) {
+	public void setSavedPlayers(List<Player> savedPlayers) {
 		this.savedPlayers = savedPlayers;
 	}
 	

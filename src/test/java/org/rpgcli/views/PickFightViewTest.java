@@ -16,12 +16,12 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.rpgcli.models.Enemy;
 import org.rpgcli.models.Location;
-import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.models.Player;
 
 public class PickFightViewTest extends AbstractViewTest<PickFightView> {
 
 	@Mock
-	private PlayerCharacter playerMock;
+	private Player playerMock;
 	
 	@Mock
 	private PlayerStatusHeaderView headerMock;

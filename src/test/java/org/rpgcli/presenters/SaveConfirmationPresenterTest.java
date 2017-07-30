@@ -9,7 +9,7 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.models.Player;
 import org.rpgcli.views.SaveConfirmationView;
 
 public class SaveConfirmationPresenterTest {
@@ -22,7 +22,7 @@ public class SaveConfirmationPresenterTest {
 	
 	
 	@Mock
-	private PlayerCharacter playerMock;
+	private Player playerMock;
 	
 	@Before
 	public void setup() {

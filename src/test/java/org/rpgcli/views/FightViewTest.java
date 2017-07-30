@@ -11,12 +11,12 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.rpgcli.models.Enemy;
-import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.models.Player;
 
 public class FightViewTest extends AbstractViewTest<FightView> {
 
 	@Mock
-	private PlayerCharacter playerMock;
+	private Player playerMock;
 
 	@Mock
 	private Enemy enemyMock;

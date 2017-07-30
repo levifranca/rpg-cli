@@ -14,7 +14,7 @@ import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.models.Player;
 import org.rpgcli.presenters.PickNamePresenter;
 import org.rpgcli.presenters.StartMenuPresenter;
 import org.rpgcli.repositories.PlayerRepository;
@@ -80,9 +80,9 @@ public class StartMenuPresenterTest {
 	
 	@Test
 	public void testPickSavedGame() throws Exception {
-		List<PlayerCharacter> mockList =  new ArrayList<>();
-		mockList.add(new PlayerCharacter());
-		mockList.add(new PlayerCharacter());
+		List<Player> mockList =  new ArrayList<>();
+		mockList.add(new Player());
+		mockList.add(new Player());
 		presenterUnderTest.setSavedGames(mockList);
 		
 		presenterUnderTest.setInput("2");

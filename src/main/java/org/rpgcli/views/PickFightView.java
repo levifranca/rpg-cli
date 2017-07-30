@@ -3,13 +3,13 @@ package org.rpgcli.views;
 import java.util.List;
 
 import org.rpgcli.models.Enemy;
-import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.models.Player;
 
 public class PickFightView extends AbstractView {
 
-	private PlayerCharacter player;
+	private Player player;
 
-	public PickFightView(PlayerCharacter player) {
+	public PickFightView(Player player) {
 		this.player = player;
 	}
 	

@@ -1,13 +1,13 @@
 package org.rpgcli.views;
 
 import org.rpgcli.console.ConsoleFontColor;
-import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.models.Player;
 
 public class PlayerStatusHeaderView extends AbstractView {
 
-	private PlayerCharacter player;
+	private Player player;
 	
-	public PlayerStatusHeaderView(PlayerCharacter player) {
+	public PlayerStatusHeaderView(Player player) {
 		this.player = player;
 	}
 	

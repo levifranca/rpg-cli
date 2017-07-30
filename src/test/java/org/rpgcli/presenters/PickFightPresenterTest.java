@@ -16,7 +16,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.rpgcli.models.Enemy;
 import org.rpgcli.models.Location;
-import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.models.Player;
 import org.rpgcli.views.PickFightView;
 
 public class PickFightPresenterTest {
@@ -28,7 +28,7 @@ public class PickFightPresenterTest {
 	private PickFightView viewMock;
 	
 	@Mock
-	private PlayerCharacter player;
+	private Player player;
 	
 	@Before
 	public void setup() {

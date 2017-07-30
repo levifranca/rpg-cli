@@ -1,17 +1,17 @@
 package org.rpgcli.presenters;
 
 import org.rpgcli.models.Enemy;
-import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.models.Player;
 import org.rpgcli.utils.Constants;
 import org.rpgcli.utils.StringUtils;
 import org.rpgcli.views.FightView;
 
 public class FightPresenter extends AbstractPresenter<FightView> {
 
-	private PlayerCharacter player;
+	private Player player;
 	private Enemy enemy;
 
-	public FightPresenter(PlayerCharacter player, Enemy enemy) {
+	public FightPresenter(Player player, Enemy enemy) {
 		super(new FightView(player, enemy));
 		this.player = player;
 		this.enemy = enemy;
@@ -59,7 +59,7 @@ public class FightPresenter extends AbstractPresenter<FightView> {
 		setNextPresenter(this);
 	}
 
-	public void setPlayer(PlayerCharacter player) {
+	public void setPlayer(Player player) {
 		this.player = player;
 	}
 

@@ -17,7 +17,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.rpgcli.models.Location;
-import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.models.Player;
 import org.rpgcli.repositories.LocationRepository;
 import org.rpgcli.views.ExploreView;
 
@@ -30,7 +30,7 @@ public class ExplorePresenterTest {
 	private ExploreView viewMock;
 	
 	@Mock
-	private PlayerCharacter player;
+	private Player player;
 	
 	@Mock
 	private LocationRepository locRepoMock;

@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.models.Player;
 
 public class StartMenuViewTest extends AbstractViewTest<StartMenuView> {
 
@@ -34,12 +34,12 @@ public class StartMenuViewTest extends AbstractViewTest<StartMenuView> {
 	
 	@Test
 	public void testDrawWithSavedGames() throws Exception {
-		List<PlayerCharacter> savedPlayersMock = new ArrayList<>();
-		PlayerCharacter playerMock = new PlayerCharacter();
+		List<Player> savedPlayersMock = new ArrayList<>();
+		Player playerMock = new Player();
 		playerMock.setName("player 1");
 		playerMock.setExperiencePoints(10);
 		savedPlayersMock.add(playerMock);
-		playerMock = new PlayerCharacter();
+		playerMock = new Player();
 		playerMock.setName("player 2");
 		playerMock.setExperiencePoints(20);
 		savedPlayersMock.add(playerMock);

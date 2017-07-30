@@ -3,7 +3,7 @@ package org.rpgcli.presenters;
 import java.util.List;
 
 import org.rpgcli.models.CharacterClass;
-import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.models.Player;
 import org.rpgcli.repositories.CharacterClassRepository;
 import org.rpgcli.utils.StringUtils;
 import org.rpgcli.views.PickClassView;
@@ -46,7 +46,7 @@ public class PickClassPresenter extends AbstractPresenter<PickClassView> {
 			return;
 		}
 		
-		PlayerCharacter player = PlayerCharacter.newPlayer(playerName, classes.get(option-1));
+		Player player = Player.newPlayer(playerName, classes.get(option-1));
 		LocationPresenter nextPresenter = new LocationPresenter(player);
 		setNextPresenter(nextPresenter);
 	}

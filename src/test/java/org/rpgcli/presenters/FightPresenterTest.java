@@ -14,7 +14,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.rpgcli.models.Enemy;
-import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.models.Player;
 import org.rpgcli.utils.Constants;
 import org.rpgcli.views.FightView;
 
@@ -27,7 +27,7 @@ public class FightPresenterTest {
 	private FightView mockView;
 	
 	@Mock
-	private PlayerCharacter playerMock;
+	private Player playerMock;
 	
 	@Mock
 	private Enemy enemyMock;

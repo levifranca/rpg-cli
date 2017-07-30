@@ -1,13 +1,13 @@
 package org.rpgcli.presenters;
 
-import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.models.Player;
 import org.rpgcli.views.SaveConfirmationView;
 
 public class SaveConfirmationPresenter extends AbstractPresenter<SaveConfirmationView> {
 	
-	private PlayerCharacter player;
+	private Player player;
 
-	public SaveConfirmationPresenter(PlayerCharacter player) {
+	public SaveConfirmationPresenter(Player player) {
 		super(new SaveConfirmationView());
 		this.player = player;
 	}

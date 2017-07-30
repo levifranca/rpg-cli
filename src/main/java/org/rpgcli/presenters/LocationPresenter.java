@@ -1,15 +1,15 @@
 package org.rpgcli.presenters;
 
-import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.models.Player;
 import org.rpgcli.utils.Constants;
 import org.rpgcli.utils.StringUtils;
 import org.rpgcli.views.LocationView;
 
 public class LocationPresenter extends AbstractPresenter<LocationView> {
 
-	private PlayerCharacter player;
+	private Player player;
 
-	public LocationPresenter(PlayerCharacter player) {
+	public LocationPresenter(Player player) {
 		super(new LocationView(player));
 		this.player = player;
 	}

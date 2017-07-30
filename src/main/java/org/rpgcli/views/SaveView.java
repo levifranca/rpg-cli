@@ -1,12 +1,12 @@
 package org.rpgcli.views;
 
-import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.models.Player;
 
 public class SaveView extends AbstractView {
 
-	private PlayerCharacter player;
+	private Player player;
 
-	public SaveView(PlayerCharacter player) {
+	public SaveView(Player player) {
 		this.player = player;
 	}
 

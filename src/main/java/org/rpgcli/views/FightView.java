@@ -1,16 +1,16 @@
 package org.rpgcli.views;
 
 import org.rpgcli.models.Enemy;
-import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.models.Player;
 import org.rpgcli.views.AbstractView;
 import org.rpgcli.views.View;
 
 public class FightView extends AbstractView {
 
-	private PlayerCharacter player;
+	private Player player;
 	private Enemy enemy;
 
-	public FightView(PlayerCharacter player, Enemy enemy) {
+	public FightView(Player player, Enemy enemy) {
 		this.player = player;
 		this.enemy = enemy;
 	}

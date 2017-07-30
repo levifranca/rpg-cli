@@ -7,12 +7,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.models.Player;
 
 public class PlayerStatusHeaderViewTest extends AbstractViewTest<PlayerStatusHeaderView> {
 
 	@Mock
-	private PlayerCharacter playerMock;
+	private Player playerMock;
 	
 	@Before
 	public void setup() {

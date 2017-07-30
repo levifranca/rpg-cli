@@ -1,13 +1,13 @@
 package org.rpgcli.presenters;
 
-import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.models.Player;
 import org.rpgcli.views.VictoryView;
 
 public class VictoryPresenter extends AbstractPresenter<VictoryView> {
 
-	private PlayerCharacter player;
+	private Player player;
 
-	public VictoryPresenter(PlayerCharacter player, Integer experienceWon) {
+	public VictoryPresenter(Player player, Integer experienceWon) {
 		super(new VictoryView(experienceWon));
 		this.player = player;
 		

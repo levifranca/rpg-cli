@@ -19,7 +19,7 @@ import org.mockito.MockitoAnnotations;
 import org.rpgcli.data.DataHandler;
 import org.rpgcli.models.CharacterClass;
 import org.rpgcli.models.Location;
-import org.rpgcli.models.PlayerCharacter;
+import org.rpgcli.models.Player;
 
 public class PlayerRepositoryTest {
 
@@ -62,7 +62,7 @@ public class PlayerRepositoryTest {
 	
 	@Test
 	public void testGetModelListNullData() throws Exception {
-		List<PlayerCharacter> result = repoUnderTest.getModelList(null);
+		List<Player> result = repoUnderTest.getModelList(null);
 		
 		assertNotNull(result);
 		assertTrue(result.isEmpty());
@@ -70,7 +70,7 @@ public class PlayerRepositoryTest {
 	
 	@Test
 	public void testGetModelListEmptyData() throws Exception {
-		List<PlayerCharacter> result = repoUnderTest.getModelList(Collections.emptyList());
+		List<Player> result = repoUnderTest.getModelList(Collections.emptyList());
 		
 		assertNotNull(result);
 		assertTrue(result.isEmpty());
@@ -81,12 +81,12 @@ public class PlayerRepositoryTest {
 		List<String[]> mockData = Arrays.asList(new String[]{"1", "player name", "2", "1", "10", "20", "15", "10"},
 				new String[]{"2", "player name 2", "1", "2", "20", "40", "30", "20"});
 		
-		List<PlayerCharacter> result = repoUnderTest.getModelList(mockData);
+		List<Player> result = repoUnderTest.getModelList(mockData);
 		
 		assertNotNull(result);
 		assertEquals(2, result.size());
 		
-		PlayerCharacter player = result.get(0);
+		Player player = result.get(0);
 		assertEquals(Integer.valueOf(1), player.getId());
 		assertEquals("player name", player.getName());
 		assertEquals("class 2", player.getCharClass().getName());
@@ -117,7 +117,7 @@ public class PlayerRepositoryTest {
 	
 	@Test
 	public void testGetModelArrayRegular() throws Exception {
-		PlayerCharacter mockPlayer = new PlayerCharacter();
+		Player mockPlayer = new Player();
 		mockPlayer.setId(1);
 		mockPlayer.setName("player name 1");
 		CharacterClass mockCharClass = new CharacterClass();
@@ -146,7 +146,7 @@ public class PlayerRepositoryTest {
 	
 	@Test
 	public void testSaveWithIDData() throws Exception {
-		PlayerCharacter data = new PlayerCharacter();
+		Player data = new Player();
 		data.setId(1);
 		data.setName("player name 1");
 		CharacterClass mockCharClass = new CharacterClass();
@@ -167,7 +167,7 @@ public class PlayerRepositoryTest {
 	
 	@Test
 	public void testSaveNoIDData() throws Exception {
-		PlayerCharacter data = new PlayerCharacter();
+		Player data = new Player();
 		data.setName("player name 1");
 		CharacterClass mockCharClass = new CharacterClass();
 		mockCharClass.setId(2);

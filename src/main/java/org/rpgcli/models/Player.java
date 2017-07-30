@@ -1,13 +1,13 @@
 package org.rpgcli.models;
 
-public class PlayerCharacter extends Fighter {
+public class Player extends Fighter {
 
 	private CharacterClass charClass;
 	private Integer experiencePoints;
 	private Location currentLocation;
 
-	public static PlayerCharacter newPlayer(String name, CharacterClass charClass) {
-		PlayerCharacter player = new PlayerCharacter();
+	public static Player newPlayer(String name, CharacterClass charClass) {
+		Player player = new Player();
 		player.setName(name);
 		player.setCharClass(charClass);
 		player.setHealthPoints(100);
