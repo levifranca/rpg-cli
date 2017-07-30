@@ -48,4 +48,11 @@ public class Location implements Model {
 		}
 		closebyLocations.add(loc);
 	}
+	
+	public void addAvailableEnemies(Enemy enemy) {
+		if (availableEnemies == null) {
+			availableEnemies = new ArrayList<>();
+		}
+		availableEnemies.add(enemy);
+	}
 }

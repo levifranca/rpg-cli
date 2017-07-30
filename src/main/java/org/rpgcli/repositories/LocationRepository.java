@@ -4,12 +4,20 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.rpgcli.data.XCSVDataHandler;
+import org.rpgcli.models.Enemy;
 import org.rpgcli.models.Location;
 
+/**
+ * @author levifranca
+ *
+ */
 public class LocationRepository extends AbstractRepository<Location> {
+	
+	private EnemyRepository enemyRepo;
 	
 	public LocationRepository() {
 		super(new XCSVDataHandler());
+		enemyRepo = new EnemyRepository();
 	}
 	
 	@Override
@@ -29,8 +37,8 @@ public class LocationRepository extends AbstractRepository<Location> {
 												}).collect(Collectors.toList());
 		
 		addClosebys(locations);
+		addEnemies(locations);
 		
-		// TODO location.setAvailableEnemies();
 		return locations;
 	}
 
@@ -47,10 +55,29 @@ public class LocationRepository extends AbstractRepository<Location> {
 			from.addClosebyLocation(to);
 		});
 	}
+	
+	private void addEnemies(List<Location> locations) {
+		if (locations == null || locations.isEmpty()) {
+			return;
+		}
+		
+		List<String[]> locToLoc = getDataHandler().fetchData("locations-enemies");
+		
+		locToLoc.forEach(record -> {
+			Location loc = locations.get(Integer.valueOf(record[0])-1);
+			Integer enemyId = Integer.valueOf(record[1]);
+			Enemy enemy = enemyRepo.findById(enemyId);
+			loc.addAvailableEnemies(enemy);;
+		});
+	}
 
 	@Override
 	protected String[] getModelArray(Location data) {
 		return new String[0];
+	}
+
+	public void setEnemyRepo(EnemyRepository enemyRepo) {
+		this.enemyRepo = enemyRepo;
 	}
 
 }

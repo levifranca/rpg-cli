@@ -21,6 +21,9 @@ public class LocationRepositoryTest {
 
 	@Mock
 	private DataHandler dataProviderMock;
+	
+	@Mock
+	private EnemyRepository enemyRepoMock;
 
 	@Before
 	public void setup() {
@@ -32,10 +35,10 @@ public class LocationRepositoryTest {
 		List<String[]> mockData = Collections.emptyList();
 		when(dataProviderMock.fetchData("locations")).thenReturn(mockData);
 
-		List<Location> classes = repoUnderTest.findAll();
+		List<Location> locations = repoUnderTest.findAll();
 
-		assertNotNull(classes);
-		assertTrue(classes.isEmpty());
+		assertNotNull(locations);
+		assertTrue(locations.isEmpty());
 	}
 	
 
@@ -53,18 +56,21 @@ public class LocationRepositoryTest {
 		assertEquals("Loc name 1", location.getName());
 		assertEquals("Loc desc 1", location.getDescription());
 		assertEquals(2, location.getClosebyLocations().size());
+		assertEquals(2, location.getAvailableEnemies().size());
 
 		location = locations.get(1);
 		assertEquals(Integer.valueOf(2), location.getId());
 		assertEquals("Loc name 2", location.getName());
 		assertEquals("Loc desc 2", location.getDescription());
 		assertEquals(1, location.getClosebyLocations().size());
+		assertEquals(1, location.getAvailableEnemies().size());
 		
 		location = locations.get(2);
 		assertEquals(Integer.valueOf(3), location.getId());
 		assertEquals("Loc name 3", location.getName());
 		assertEquals("Loc desc 3", location.getDescription());
 		assertEquals(2, location.getClosebyLocations().size());
+		assertEquals(3, location.getAvailableEnemies().size());
 
 	}
 
@@ -109,5 +115,14 @@ public class LocationRepositoryTest {
 		mockData2.add(new String[] { "3", "1" });
 		mockData2.add(new String[] { "3", "2" });
 		when(dataProviderMock.fetchData("locations-locations")).thenReturn(mockData2);
+		
+		List<String[]> mockData3 = new ArrayList<>();
+		mockData3.add(new String[] { "1", "3" });
+		mockData3.add(new String[] { "1", "1" });
+		mockData3.add(new String[] { "2", "2" });
+		mockData3.add(new String[] { "3", "2" });
+		mockData3.add(new String[] { "3", "3" });
+		mockData3.add(new String[] { "3", "1" });
+		when(dataProviderMock.fetchData("locations-enemies")).thenReturn(mockData3);
 	}
 }
