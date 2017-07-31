@@ -29,8 +29,7 @@ public class LocalFileDataHandler implements DataHandler {
 			
 			data = br.lines().map(filteredLine -> {
 								 filteredLine = filteredLine.substring(1, filteredLine.length()-1);
-								 String[] array = filteredLine.split("\",\"");
-								 return array;
+								 return filteredLine.split("\",\"");
 							 }).collect(Collectors.toList());
 		} catch (IOException e) {
 			// We're not handling it for now
@@ -56,7 +55,7 @@ public class LocalFileDataHandler implements DataHandler {
 			}
 			
 			List<String> recordsAsString = dataArray.stream()
-													.map(record -> recordArrayAsString(record))
+													.map(this::recordArrayAsString)
 													.collect(Collectors.toList());
 			
 			// Regular foreach loop to leverage try-catch

@@ -74,7 +74,7 @@ public abstract class AbstractRepository<T extends Model> implements Repository<
 		
 		List<T> allDataSorted = getDataSorted(cache.values());
 		List<String[]> dataAsArray = allDataSorted.stream()
-												  .map(record -> getModelArray(record))
+												  .map(this::getModelArray)
 												  .collect(Collectors.toList());
 		
 		dataHandler.saveData(getModelSourceName(), dataAsArray);

@@ -24,14 +24,12 @@ public class XCSVDataHandler implements DataHandler {
 		}
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(is));
-		List<String[]> data = br.lines().filter(line -> !line.startsWith("#"))
-				  						.map(filteredLine -> {
-											  filteredLine = filteredLine.substring(1, filteredLine.length()-1);
-											  String[] array = filteredLine.split("\",\"");
-											  return array;
-										 }).collect(Collectors.toList());
+		return br.lines().filter(line -> !line.startsWith("#"))
+  						 .map(filteredLine -> {
+  							 filteredLine = filteredLine.substring(1, filteredLine.length()-1);
+  							 return filteredLine.split("\",\"");
+						 }).collect(Collectors.toList());
 								
-		return data;
 	}
 
 	@Override
