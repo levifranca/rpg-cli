@@ -10,14 +10,12 @@ public class GameOverPresenter extends AbstractPresenter<GameOverView> {
 	
 	@Override
 	public void start() {
-		// TODO Auto-generated method stub
-		
+		getView().draw();
 	}
 
 	@Override
 	public void setInput(String input) {
-		// TODO Auto-generated method stub
-		
+		setNextPresenter(new StartMenuPresenter());
 	}
 
 }

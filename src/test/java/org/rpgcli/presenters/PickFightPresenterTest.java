@@ -6,7 +6,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
@@ -29,7 +28,10 @@ public class PickFightPresenterTest {
 	
 	@Mock
 	private Player player;
-	
+
+	@Mock
+	private List<Enemy> enemies;
+
 	@Before
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
@@ -105,16 +107,9 @@ public class PickFightPresenterTest {
 	}
 
 	private void mockPlayerData() {
-		List<Enemy> enemies = new ArrayList<>();
-		Enemy locMock = new Enemy();
-		locMock.setId(1);
-		enemies.add(locMock);
-		locMock = new Enemy();
-		locMock.setId(2);
-		enemies.add(locMock);
-		locMock = new Enemy();
-		locMock.setId(3);
-		enemies.add(locMock);
+		Enemy mockEnemy = mock(Enemy.class);
+		when(enemies.size()).thenReturn(2);
+		when(enemies.get(1)).thenReturn(mockEnemy);
 		
 		Location mockLocation = mock(Location.class);
 		when(mockLocation.getAvailableEnemies()).thenReturn(enemies);

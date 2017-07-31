@@ -6,23 +6,29 @@ import org.rpgcli.views.VictoryView;
 public class VictoryPresenter extends AbstractPresenter<VictoryView> {
 
 	private Player player;
+	private Integer experienceWon;
 
 	public VictoryPresenter(Player player, Integer experienceWon) {
 		super(new VictoryView(experienceWon));
 		this.player = player;
+		this.experienceWon = experienceWon;
 		
 	}
 	
 	@Override
 	public void start() {
-		// TODO Auto-generated method stub
-		
+		getView().draw();
 	}
 
 	@Override
 	public void setInput(String input) {
-		// TODO Auto-generated method stub
-		
+		player.gainExperience(experienceWon);
+		setNextPresenter(new PickFightPresenter(player));
 	}
 
+	public void setExperienceWon(Integer experienceWon) {
+		this.experienceWon = experienceWon;
+	}
+
+	
 }

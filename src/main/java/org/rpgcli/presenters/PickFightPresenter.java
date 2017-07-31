@@ -42,7 +42,7 @@ public class PickFightPresenter extends AbstractPresenter<PickFightView> {
 			return;
 		}
 		
-		setNextPresenter(new FightPresenter(player, enemies.get(option-1)));
+		setNextPresenter(new FightPresenter(player, new Enemy(enemies.get(option-1))));
 		
 	}
 

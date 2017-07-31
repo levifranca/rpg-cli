@@ -43,4 +43,9 @@ public class Player extends Fighter {
 		this.currentLocation = currentLocation;
 	}
 
+	public void gainExperience(Integer experienceWon) {
+		if (experienceWon > 0) {
+			this.experiencePoints += experienceWon;
+		}
+	}
 }

@@ -49,12 +49,19 @@ public abstract class Fighter implements Model {
 	}
 
 	public boolean isDead() {
-		return false;
+		return healthPoints <= 0;
 	}
 
-	public void attack(Fighter enemy) {
-		// TODO Auto-generated method stub
-
+	public void attack(Fighter opponent) {
+		if (attackPower > opponent.defencePower) {
+			Integer hitpoits = (int) Math.ceil(((double)attackPower-opponent.defencePower)/2);
+			
+			opponent.setHealthPoints(opponent.healthPoints - hitpoits);
+			
+			return;
+		}
+		
+		opponent.setHealthPoints(opponent.healthPoints - 1);
 	}
 
 }

@@ -81,6 +81,7 @@ public class FightPresenterTest {
 		assertNotNull(presenterUnderTest.getNextPresenter());
 		assertTrue(presenterUnderTest.getNextPresenter() instanceof FightPresenter);
 		assertEquals(presenterUnderTest, presenterUnderTest.getNextPresenter());
+		verify(playerMock, never()).gainExperience(ArgumentMatchers.anyInt());
 	}
 	
 	@Test
@@ -97,6 +98,7 @@ public class FightPresenterTest {
 		
 		assertNotNull(presenterUnderTest.getNextPresenter());
 		assertTrue(presenterUnderTest.getNextPresenter() instanceof VictoryPresenter);
+		verify(playerMock, never()).gainExperience(ArgumentMatchers.anyInt());
 	}
 	
 	@Test
@@ -113,6 +115,7 @@ public class FightPresenterTest {
 		
 		assertNotNull(presenterUnderTest.getNextPresenter());
 		assertTrue(presenterUnderTest.getNextPresenter() instanceof GameOverPresenter);
+		verify(playerMock, never()).gainExperience(ArgumentMatchers.anyInt());
 	}
 	
 	@Test
@@ -125,6 +128,7 @@ public class FightPresenterTest {
 		assertNotNull(presenterUnderTest.getNextPresenter());
 		assertTrue(presenterUnderTest.getNextPresenter() instanceof FightPresenter);
 		assertEquals(presenterUnderTest, presenterUnderTest.getNextPresenter());
+		verify(playerMock, never()).gainExperience(ArgumentMatchers.anyInt());
 	}
 	
 	@Test
@@ -138,14 +142,21 @@ public class FightPresenterTest {
 		
 		assertNotNull(presenterUnderTest.getNextPresenter());
 		assertTrue(presenterUnderTest.getNextPresenter() instanceof GameOverPresenter);
+		verify(playerMock, never()).gainExperience(ArgumentMatchers.anyInt());
 	}
 	
 	@Test
 	public void testRunAwayInput() throws Exception {
 		presenterUnderTest.setInput(Constants.RUN_AWAY_OPTION);
 		
+		verify(playerMock, never()).attack(ArgumentMatchers.eq(enemyMock));
+		verify(enemyMock, never()).isDead();
+		verify(enemyMock, never()).attack(ArgumentMatchers.eq(playerMock));
+		verify(playerMock, never()).isDead();
+		
 		assertNotNull(presenterUnderTest.getNextPresenter());
 		assertTrue(presenterUnderTest.getNextPresenter() instanceof PickFightPresenter);
+		verify(playerMock, never()).gainExperience(ArgumentMatchers.anyInt());
 	}
 
 }
