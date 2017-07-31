@@ -2,7 +2,6 @@ package org.rpgcli.data;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -10,6 +9,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.rpgcli.exceptions.GeneralRuntimeException;
 import org.rpgcli.utils.StringUtils;
 
 public class LocalFileDataHandler implements DataHandler {
@@ -32,12 +32,9 @@ public class LocalFileDataHandler implements DataHandler {
 								 String[] array = filteredLine.split("\",\"");
 								 return array;
 							 }).collect(Collectors.toList());
-		} catch (FileNotFoundException e) {
-			data = Collections.emptyList();
 		} catch (IOException e) {
-			if (data == null) {
-				data = Collections.emptyList();
-			}
+			// We're not handling it for now
+			throw new GeneralRuntimeException(e);
 		}
 		
 		return data;
@@ -54,7 +51,9 @@ public class LocalFileDataHandler implements DataHandler {
 		File file = new File(filename);
 
 		try (FileWriter fw = new FileWriter(file)) {
-			file.createNewFile();
+			if (!file.exists() && !file.createNewFile()) {
+				return false;
+			}
 			
 			List<String> recordsAsString = dataArray.stream()
 													.map(record -> recordArrayAsString(record))
@@ -67,7 +66,8 @@ public class LocalFileDataHandler implements DataHandler {
 			}
 			
 		} catch (IOException e) {
-			return false;
+			// We're not handling it for now
+			throw new GeneralRuntimeException(e);
 		}
 		
 		

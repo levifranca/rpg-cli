@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import org.rpgcli.exceptions.GeneralRuntimeException;
+
 public class ConsoleReaderImpl implements ConsoleReader {
 
 	private static ConsoleReaderImpl instance;
@@ -33,7 +35,8 @@ public class ConsoleReaderImpl implements ConsoleReader {
 		try {
 			result = getBufferedReader().readLine();
 		} catch (IOException e) {
-			// do nothing
+			// We're not handling it for now
+			throw new GeneralRuntimeException(e);
 		}
 		
 		return result;

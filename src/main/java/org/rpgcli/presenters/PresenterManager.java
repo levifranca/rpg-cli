@@ -13,8 +13,6 @@ public class PresenterManager {
 			currPresenter.start();
 			currPresenter = currPresenter.getNextPresenter();
 		}
-		
-		System.exit(0);
 	}
 
 	public Presenter<?> getCurrPresenter() {
