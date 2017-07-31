@@ -56,7 +56,7 @@ public class PickClassViewTest extends AbstractViewTest<PickClassView> {
 		viewUnderTest.drawInvalidInputErrorMessage();
 		
 		assertEquals("\u001B[41m\u001B[30m"
-				+ "Invalid option! Please pick a valid option."
+				+ "Invalid option! Please pick a valid option. Options are case-sensitive."
 				+ "\u001B[0m\n", consoleWriterMock.getMockStream());
 	}
 	

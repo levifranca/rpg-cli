@@ -55,7 +55,9 @@ public class LocationViewTest extends AbstractViewTest<LocationView> {
 	public void testDrawInvalidInputErrorMessage() throws Exception {
 		viewUnderTest.drawInvalidInputErrorMessage();
 		
-		assertEquals("\u001B[41m\u001B[30mInvalid option! Please pick a valid option.\u001B[0m\n", consoleWriterMock.getMockStream());
+		assertEquals("\u001B[41m\u001B[30m"
+				+ "Invalid option! Please pick a valid option. Options are case-sensitive."
+				+ "\u001B[0m\n", consoleWriterMock.getMockStream());
 	}
 	
 	@Test

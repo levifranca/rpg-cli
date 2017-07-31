@@ -34,7 +34,7 @@ public abstract class AbstractView implements View {
 
 	@Override
 	public void drawInvalidInputErrorMessage() {
-		writeErrorMessage("Invalid option! Please pick a valid option.");
+		writeErrorMessage("Invalid option! Please pick a valid option. Options are case-sensitive.");
 		readInput();
 	}
 	
