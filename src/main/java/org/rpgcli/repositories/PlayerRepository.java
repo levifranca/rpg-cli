@@ -38,6 +38,7 @@ public class PlayerRepository extends AbstractRepository<Player> {
 			player.setAttackPower(Integer.valueOf(record[5]));
 			player.setDefencePower(Integer.valueOf(record[6]));
 			player.setExperiencePoints(Integer.valueOf(record[7]));
+			player.setTheme(record[8]);
 			return player;
 		}).collect(Collectors.toList());
 	}
@@ -48,7 +49,7 @@ public class PlayerRepository extends AbstractRepository<Player> {
 			return new String[0];
 		}
 		
-		String[] array = new String[8];
+		String[] array = new String[9];
 		array[0] = data.getId().toString();
 		array[1] = data.getName();
 		array[2] = data.getCharClass().getId().toString();
@@ -57,8 +58,15 @@ public class PlayerRepository extends AbstractRepository<Player> {
 		array[5] = data.getAttackPower().toString();
 		array[6] = data.getDefencePower().toString();
 		array[7] = data.getExperiencePoints().toString();
+		array[8] = data.getTheme();
 		
 		return array;
+	}
+	
+	public List<Player> findAllByTheme(String theme) {
+		return findAll().stream()
+				.filter(game -> theme.equals(game.getTheme()))
+				.collect(Collectors.toList());
 	}
 
 	public void setCharClassRepo(CharacterClassRepository charClassRepo) {

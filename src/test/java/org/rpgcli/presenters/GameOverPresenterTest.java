@@ -3,6 +3,7 @@ package org.rpgcli.presenters;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.mock;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -39,6 +40,8 @@ public class GameOverPresenterTest {
 	
 	@Test
 	public void testOnInput() throws Exception {
+		presenterUnderTest.setStartMenuPresenter(mock(StartMenuPresenter.class));
+		
 		presenterUnderTest.setInput("");
 
 		assertNotNull(presenterUnderTest.getNextPresenter());

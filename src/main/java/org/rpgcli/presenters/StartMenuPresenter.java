@@ -2,6 +2,7 @@ package org.rpgcli.presenters;
 
 import java.util.List;
 
+import org.rpgcli.config.GameConfig;
 import org.rpgcli.models.Player;
 import org.rpgcli.repositories.PlayerRepository;
 import org.rpgcli.utils.Constants;
@@ -21,8 +22,15 @@ public class StartMenuPresenter extends AbstractPresenter<StartMenuView> {
 		super(new StartMenuView());
 		playerRepo = new PlayerRepository();
 
-		savedGames = playerRepo.findAll();
+	}
+	
+	@Override
+	public void start() {
+		savedGames = playerRepo.findAllByTheme(GameConfig.getInstance().getTheme());
+		
 		getView().setSavedPlayers(savedGames);
+		
+		super.start();
 	}
 	
 	@Override

@@ -4,8 +4,8 @@ public class PresenterManager {
 
 	private Presenter<?> currPresenter;
 
-	public PresenterManager() {
-		currPresenter = new StartMenuPresenter();
+	public PresenterManager(Presenter<?> startPresenter) {
+		currPresenter = startPresenter;
 	}
 
 	public void run() {

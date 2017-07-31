@@ -7,6 +7,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.rpgcli.config.GameConfig;
+
 public class XCSVDataHandler implements DataHandler {
 
 	@Override
@@ -15,7 +17,7 @@ public class XCSVDataHandler implements DataHandler {
 			return Collections.emptyList();
 		}
 		
-		String filename = "/" + dataSourceName + ".xcsv";
+		String filename = "/themes/" + GameConfig.getInstance().getTheme() + "/" + dataSourceName + ".xcsv";
 		
 		InputStream is = getClass().getResourceAsStream(filename);
 		if (is == null) {

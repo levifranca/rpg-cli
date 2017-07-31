@@ -3,19 +3,23 @@ package org.rpgcli.repositories;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.rpgcli.config.GameConfig;
 import org.rpgcli.data.DataHandler;
 import org.rpgcli.models.CharacterClass;
 import org.rpgcli.models.Location;
@@ -38,6 +42,7 @@ public class PlayerRepositoryTest {
 	@Before
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
+		spy(repoUnderTest);
 		
 		CharacterClass charClassMock = new CharacterClass();
 		charClassMock.setName("class 1");
@@ -55,6 +60,11 @@ public class PlayerRepositoryTest {
 		
 	}
 
+	@After
+	public void teardown() {
+		GameConfig.getInstance().setTheme("default");
+	}
+	
 	@Test
 	public void testGetModelSourceName() throws Exception {
 		assertEquals("players", repoUnderTest.getModelSourceName());
@@ -78,8 +88,8 @@ public class PlayerRepositoryTest {
 	
 	@Test
 	public void testGetModelListRegularData() throws Exception {
-		List<String[]> mockData = Arrays.asList(new String[]{"1", "player name", "2", "1", "10", "20", "15", "10"},
-				new String[]{"2", "player name 2", "1", "2", "20", "40", "30", "20"});
+		List<String[]> mockData = Arrays.asList(new String[]{"1", "player name", "2", "1", "10", "20", "15", "10", "theme1"},
+				new String[]{"2", "player name 2", "1", "2", "20", "40", "30", "20", "theme2"});
 		
 		List<Player> result = repoUnderTest.getModelList(mockData);
 		
@@ -95,6 +105,7 @@ public class PlayerRepositoryTest {
 		assertEquals(Integer.valueOf(15), player.getDefencePower());
 		assertEquals(Integer.valueOf(10), player.getExperiencePoints());
 		assertEquals("loc 1", player.getCurrentLocation().getName());
+		assertEquals("theme1", player.getTheme());
 		
 		player = result.get(1);
 		assertEquals(Integer.valueOf(2), player.getId());
@@ -104,7 +115,7 @@ public class PlayerRepositoryTest {
 		assertEquals(Integer.valueOf(40), player.getAttackPower());
 		assertEquals(Integer.valueOf(30), player.getDefencePower());
 		assertEquals(Integer.valueOf(20), player.getExperiencePoints());
-		assertEquals("loc 2", player.getCurrentLocation().getName());
+		assertEquals("theme2", player.getTheme());
 	}
 	
 	@Test
@@ -130,10 +141,11 @@ public class PlayerRepositoryTest {
 		mockPlayer.setAttackPower(20);
 		mockPlayer.setDefencePower(30);
 		mockPlayer.setExperiencePoints(40);
+		mockPlayer.setTheme("theme");
 		
 		String[] result =  repoUnderTest.getModelArray(mockPlayer);
 		
-		assertEquals(8, result.length);
+		assertEquals(9, result.length);
 		assertEquals("1", result[0]);
 		assertEquals("player name 1", result[1]);
 		assertEquals("2", result[2]);
@@ -142,6 +154,7 @@ public class PlayerRepositoryTest {
 		assertEquals("20", result[5]);
 		assertEquals("30", result[6]);
 		assertEquals("40", result[7]);
+		assertEquals("theme", result[8]);
 	}
 	
 	@Test
@@ -185,4 +198,24 @@ public class PlayerRepositoryTest {
 		verify(dataHandlerMock).saveData(ArgumentMatchers.eq("players"), ArgumentMatchers.anyList());
 	}
 
+	@Test
+	public void testFindAllByTheme() throws Exception {
+		List<String[]> mockPlayers = new ArrayList<>();
+		mockPlayers.add(new String[]{"1", "name1", "1", "2", "64", "20", "15", "0", "t1"});
+		mockPlayers.add(new String[]{"2", "name2", "2", "2", "64", "20", "15", "0", "t1"});
+		mockPlayers.add(new String[]{"4", "name3", "3", "2", "64", "20", "15", "0", "test"});
+		mockPlayers.add(new String[]{"5", "name5", "5", "2", "64", "20", "15", "0", "t2"});
+		
+		when(dataHandlerMock.fetchData("players")).thenReturn(mockPlayers);
+		
+		GameConfig.getInstance().setTheme("test");
+		List<Player> result = repoUnderTest.findAllByTheme("test");
+		
+		assertNotNull(result);
+		assertEquals(1, result.size());
+		
+		Player player = result.get(0);
+		assertEquals(Integer.valueOf(4), player.getId());
+		assertEquals("test", player.getTheme());
+	}
 }
