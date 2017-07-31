@@ -18,11 +18,6 @@ public class FightPresenter extends AbstractPresenter<FightView> {
 	}
 
 	@Override
-	public void start() {
-		getView().draw();
-	}
-
-	@Override
 	public void setInput(String input) {
 		if (StringUtils.isBlank(input)) {
 			getView().drawInvalidInputErrorMessage();

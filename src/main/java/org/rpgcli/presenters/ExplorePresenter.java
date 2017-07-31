@@ -21,11 +21,6 @@ public class ExplorePresenter extends AbstractPresenter<ExploreView> {
 	}
 
 	@Override
-	public void start() {
-		getView().draw();
-	}
-
-	@Override
 	public void setInput(String input) {
 		if (StringUtils.isBlank(input)) {
 			getView().drawInvalidInputErrorMessage();

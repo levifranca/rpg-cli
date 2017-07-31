@@ -14,11 +14,6 @@ public class VictoryPresenter extends AbstractPresenter<VictoryView> {
 		this.experienceWon = experienceWon;
 		
 	}
-	
-	@Override
-	public void start() {
-		getView().draw();
-	}
 
 	@Override
 	public void setInput(String input) {

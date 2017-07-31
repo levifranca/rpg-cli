@@ -20,13 +20,9 @@ public class StartMenuPresenter extends AbstractPresenter<StartMenuView> {
 	public StartMenuPresenter() {
 		super(new StartMenuView());
 		playerRepo = new PlayerRepository();
-	}
-	
-	@Override
-	public void start() {
+
 		savedGames = playerRepo.findAll();
 		getView().setSavedPlayers(savedGames);
-		getView().draw();
 	}
 	
 	@Override

@@ -13,11 +13,6 @@ public class SaveConfirmationPresenter extends AbstractPresenter<SaveConfirmatio
 	}
 
 	@Override
-	public void start() {
-		getView().draw();
-	}
-
-	@Override
 	public void setInput(String input) {
 		setNextPresenter(new LocationPresenter(player));
 	}

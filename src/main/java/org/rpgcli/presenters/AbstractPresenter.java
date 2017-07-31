@@ -15,6 +15,11 @@ public abstract class AbstractPresenter<T extends View> implements Presenter<T> 
 	}
 	
 	@Override
+	public void start() {
+		getView().draw();
+	}
+	
+	@Override
 	public T getView() {
 		return view;
 	}

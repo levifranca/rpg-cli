@@ -9,11 +9,6 @@ public class GameOverPresenter extends AbstractPresenter<GameOverView> {
 	}
 	
 	@Override
-	public void start() {
-		getView().draw();
-	}
-
-	@Override
 	public void setInput(String input) {
 		setNextPresenter(new StartMenuPresenter());
 	}

@@ -1,6 +1,7 @@
 package org.rpgcli.presenters;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -9,13 +10,10 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.rpgcli.models.CharacterClass;
-import org.rpgcli.presenters.LocationPresenter;
-import org.rpgcli.presenters.PickClassPresenter;
 import org.rpgcli.repositories.CharacterClassRepository;
 import org.rpgcli.views.PickClassView;
 
@@ -45,7 +43,6 @@ public class PickClassPresenterTest {
 		
 		presenterUnderTest.start();
 		
-		verify(viewMock).setCharacterClasses(ArgumentMatchers.same(mockList));
 		verify(viewMock).draw();
 	}
 	

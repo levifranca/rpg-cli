@@ -1,6 +1,8 @@
 package org.rpgcli.presenters;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -10,13 +12,10 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.rpgcli.models.Player;
-import org.rpgcli.presenters.PickNamePresenter;
-import org.rpgcli.presenters.StartMenuPresenter;
 import org.rpgcli.repositories.PlayerRepository;
 import org.rpgcli.utils.Constants;
 import org.rpgcli.views.StartMenuView;
@@ -45,7 +44,6 @@ public class StartMenuPresenterTest {
 	public void testStart() throws Exception {
 		presenterUnderTest.start();
 		
-		verify(mockView).setSavedPlayers(ArgumentMatchers.anyList());
 		verify(mockView).draw();
 	}
 	

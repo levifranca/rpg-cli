@@ -10,11 +10,6 @@ public class PickNamePresenter extends AbstractPresenter<PickNameView> {
 	}
 
 	@Override
-	public void start() {
-		getView().draw();
-	}
-
-	@Override
 	public void setInput(String input) {
 		if (StringUtils.isBlank(input)) {
 			getView().drawInvalidInputErrorMessage();

@@ -17,13 +17,13 @@ public class PickClassPresenter extends AbstractPresenter<PickClassView> {
 		super(new PickClassView());
 		charClassRepo = new CharacterClassRepository();
 		this.playerName = playerName;
+		
+		List<CharacterClass> classes = charClassRepo.findAll();
+		getView().setCharacterClasses(classes);
 	}
 	
 	@Override
 	public void start() {
-		List<CharacterClass> classes = charClassRepo.findAll();
-		
-		getView().setCharacterClasses(classes);
 		getView().draw();
 	}
 

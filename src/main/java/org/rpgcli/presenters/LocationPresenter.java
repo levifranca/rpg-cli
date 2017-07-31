@@ -15,11 +15,6 @@ public class LocationPresenter extends AbstractPresenter<LocationView> {
 	}
 
 	@Override
-	public void start() {
-		getView().draw();
-	}
-
-	@Override
 	public void setInput(String input) {
 		if (StringUtils.isBlank(input)) {
 			getView().drawInvalidInputErrorMessage();
