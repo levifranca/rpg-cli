@@ -8,6 +8,7 @@ In this game the player should be able to:
 	- Explore;
 	- Gain experience through fighting; and
 	- Save and Resume
+	
 
 ## How to build and test
 
@@ -90,11 +91,12 @@ Of course, always remember to add Unit tests for your new code. :)
 It is possible to create new themes to the game. You will need to:
 1. Create a new folder into `<repo-folder>/src/main/resources/themes`
 2. Into this folder create the files:
-..* _char-classes.xcsv_ - For the character classes available; 
-..* _locations.xcsv_ - For the locations available; 
-..* _enemies.xcsv_ - For the enemies available; 
-..* _locations-locations.xcsv_ - For the relation between closeby locations; 
-..* _locations-enemies.xcsv_ - For the enemies available in each location; 
+	* _char-classes.xcsv_ - For the character classes available; 
+	* _locations.xcsv_ - For the locations available; 
+	* _enemies.xcsv_ - For the enemies available; 
+	* _locations-locations.xcsv_ - For the relation between closeby locations; 
+	* _locations-enemies.xcsv_ - For the enemies available in each location.
+
 
 It uses a eXtended Comma-Separated Values (xcsv) format, in which you can add lines starting with # to add comments.
 
