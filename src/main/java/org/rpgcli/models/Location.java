@@ -36,10 +36,16 @@ public class Location implements Model {
 	}
 
 	public List<Enemy> getAvailableEnemies() {
+		if (availableEnemies == null) {
+			availableEnemies = new ArrayList<>();
+		}
 		return availableEnemies;
 	}
 
 	public List<Location> getClosebyLocations() {
+		if (closebyLocations == null) {
+			closebyLocations = new ArrayList<>();
+		}
 		return closebyLocations;
 	}
 
