@@ -1,6 +1,6 @@
 # README #
 
-This project was part of a company hiring process. The idea is to build a pure JavaSE RPG game to be played through the command line.
+The idea is to build a pure JavaSE RPG game to be played through the command line.
 
 In this game the player should be able to:
 
