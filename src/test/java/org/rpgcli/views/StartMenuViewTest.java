@@ -21,9 +21,10 @@ public class StartMenuViewTest extends AbstractViewTest<StartMenuView> {
 	
 	@Test
 	public void testBasicDraw() throws Exception {
+		viewUnderTest.setAsciiLogo(new String[]{"RPG-CLI"});
 		viewUnderTest.draw();
 		
-		String expected = "Welcome to RPG CLI game.\n"
+		String expected = "Welcome to:\n\u001B[31mRPG-CLI\u001B[0m\n\n"
 				+ "What would you like to do:\n"
 				+ "N. New Game.\n"
 				+ "\n"
@@ -45,9 +46,10 @@ public class StartMenuViewTest extends AbstractViewTest<StartMenuView> {
 		savedPlayersMock.add(playerMock);
 		viewUnderTest.setSavedPlayers(savedPlayersMock);
 		
+		viewUnderTest.setAsciiLogo(new String[]{"RPG-CLI"});
 		viewUnderTest.draw();
 		
-		String expected = "Welcome to RPG CLI game.\n"
+		String expected = "Welcome to:\n\u001B[31mRPG-CLI\u001B[0m\n\n"
 				+ "What would you like to do:\n"
 				+ "N. New Game.\n"
 				+ "1. player 1\tXP: 10\n"
