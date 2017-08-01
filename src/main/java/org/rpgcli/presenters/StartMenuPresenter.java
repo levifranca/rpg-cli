@@ -37,6 +37,7 @@ public class StartMenuPresenter extends AbstractPresenter<StartMenuView> {
 	public void setInput(String input) {
 		if (StringUtils.isBlank(input)) {
 			getView().drawInvalidInputErrorMessage();
+			return;
 		}
 		
 		if (Constants.NEW_GAME_OPTION.equals(input)) {
