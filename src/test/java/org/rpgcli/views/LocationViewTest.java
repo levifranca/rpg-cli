@@ -36,11 +36,13 @@ public class LocationViewTest extends AbstractViewTest<LocationView> {
 		when(viewUnderTest.getHeaderView()).thenReturn(null);
 		
 		Location mockLocation = new Location();
+		mockLocation.setName("Temple");
 		mockLocation.setDescription("The temple is a place for self-reflection.");
 		when(playerMock.getCurrentLocation()).thenReturn(mockLocation);
 		viewUnderTest.draw();
 		
-		String expected = "The temple is a place for self-reflection.\n"
+		String expected = "\nYou are at: Temple\n"
+				+ "The temple is a place for self-reflection.\n\n"
 				+ "Pick your next action:\n"
 				+ "E. Explore\n"
 				+ "F. Fight\n"

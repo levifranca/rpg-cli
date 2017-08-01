@@ -17,8 +17,9 @@ public class LocationView extends AbstractView {
 
 	@Override
 	protected void drawView() {
-		getConsoleWriter()
-		.write(player.getCurrentLocation().getDescription()).breakLine()
+		getConsoleWriter().breakLine()
+		.write("You are at: " + player.getCurrentLocation().getName()).breakLine()
+		.write(player.getCurrentLocation().getDescription()).breakLine().breakLine()
 		.write("Pick your next action:").breakLine()
 		.write("E. Explore").breakLine()
 		.write("F. Fight").breakLine()
